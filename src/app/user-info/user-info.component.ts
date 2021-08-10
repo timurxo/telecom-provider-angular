@@ -13,19 +13,25 @@ export class UserInfoComponent implements OnInit {
   constructor(private service: UserService) { }
 
   userToFind!: string;
- 
   userList!: User;
 
   
   msg!:string;
-  toFind!:string;
+  // toFind!:string;
   
+
+  // ---- GET DATA FROM THE SERVICE WHEN BUTTON IS CLICKED ----
   clickEvent(){
     console.log(this.msg);
-    this.toFind = this.msg;
+    this.userToFind = this.msg;
+
+    if (!this.userToFind) {
+      alert("User was not found!");
+      return;
+    }
 
     // executes function when data is back from backend --- similar to onreadystatechange
-    this.service.findByUserName(this.toFind).subscribe((data) => {
+    this.service.findByUserName(this.userToFind).subscribe((data) => {
       this.userList = data; // data from backend
       console.log(this.userList);
       
@@ -33,14 +39,9 @@ export class UserInfoComponent implements OnInit {
   }
 
 
-  // ---- GET DATA FROM THE SERVICE (from backend)
+  
   ngOnInit(): void {
-    // // executes function when data is back from backend --- similar to onreadystatechange
-    // this.service.findByUserName(this.toFind).subscribe((data) => {
-    //     this.userList = data; // data from backend
-    //     console.log(this.userList);
-        
-    // });
+   
   }
 
  
