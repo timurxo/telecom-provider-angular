@@ -1,0 +1,18 @@
+
+<div class="container-fluid">
+
+    <div> <h1>Telecom Provider</h1></div>
+
+    <!-- add links -->
+    <a [routerLink]="['/add']">Add User </a>
+    <div></div>
+    <a [routerLink]="['/list']"> View All Users</a>
+
+    
+    <!-- we tell where components will be rendered -->
+    <!--  here will be rendered whichever link from above is pressed: for ex. if we have 'add user' then it will be rendered here-->
+    <router-outlet></router-outlet>
+
+</div>
+
+

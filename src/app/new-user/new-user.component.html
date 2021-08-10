@@ -1,0 +1,53 @@
+<div class="col-lg-6">
+    <h2>Add User</h2>
+    <form (ngSubmit)="save(); userForm.reset()" id="new-user"  #userForm>
+      <div class="form-group">
+        <label> User Name</label>
+        <input
+          [(ngModel)]="userToSave.name"
+          name="name"
+          class="form-control"
+          id="name"
+          type="text"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label> Device</label>
+        <input
+          [(ngModel)]="userToSave.device"
+          name="device"
+          class="form-control"
+          id="device"
+          type="text"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label> Phone phoneNumber</label>
+        <input
+          [(ngModel)]="userToSave.phoneNumber"
+          name="phoneNumber"
+          class="form-control"
+          id="phoneNumber"
+          type="text"
+        />
+      </div>
+
+      <div class="form-group">
+        <label> Plan</label>
+        <input
+          [(ngModel)]="userToSave.plan"
+          name="plan"
+          class="form-control"
+          id="plan"
+          type="text"
+        />
+      </div>
+  
+      <div class="form-group">
+        <input class="btn btn-primary submit-button" type="submit" value="Add" />
+      </div>
+    </form>
+  </div>
+  
