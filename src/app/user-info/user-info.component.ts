@@ -35,16 +35,23 @@ export class UserInfoComponent implements OnInit {
       console.log( data );
       this.msg = '';
 
-
-      // for (var x in this.userList){
-      //   console.log(x);    
-      // }
-      
-
-
   });
   }
 
+  // ---- REMOVE ROW WHEN BUTTON IS CLICKED ---- 
+  clickRemove(item: any) {
+    console.log("removed: " + item.id);
+
+    if (!item.id) {
+      alert("something went wrong");
+      return;
+    }
+
+    this.service.delete(item.id).subscribe((data) => {    
+      alert("your device is removed");   
+  });
+    
+  }
 
   
   ngOnInit(): void {
