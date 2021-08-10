@@ -22,6 +22,14 @@ export class UserService {
     return this.httpClient.get<User[]>(this.url); // returns Observable - stream of data returned from backend
   }
 
+  // findByUserName(name: string): Observable<User[]> {
+  //   return this.httpClient.get<User[]>(this.url + "/name/" + name);
+  // }
+
+  findByUserName(name: string): Observable<User> {
+    return this.httpClient.get<User>(this.url + "/name/" + name);
+  }
+
   save(user: User): Observable<User>{
     return this.httpClient.post<User>(this.url, user);
   }

@@ -1,0 +1,33 @@
+<!-- <div>
+    <h2>Find User</h2>
+    
+    <p><input type="text" id="username" name="username" [(ngModel)]="username"></p>
+    <h1> {{username}}</h1>
+
+    <button type="button" (click)="clickme()">Clickme</button>
+    
+</div> -->
+
+<div id="user-list">
+   
+    <h2>View By User Name</h2>
+
+    <table id="user-table" class="table">
+        <tr>
+            <th>User Name</th>
+            <th>Device</th>
+            <th>Phone Number</th>
+            <th>Plan</th>
+        </tr>
+        <!-- similar to 'for each' -->
+        <!-- {{userList}} -->
+        <tr>
+            <td>{{ userList.name }}</td>
+            <td>{{ userList.device }}</td>
+            <td>{{ userList.phoneNumber }}</td>
+            <td>{{ userList.plan }}</td>
+            
+        </tr>
+    </table>
+</div>
+
