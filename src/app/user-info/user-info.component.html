@@ -1,14 +1,18 @@
-<!-- <div>
-    <h2>Find User</h2>
-    
-    <p><input type="text" id="username" name="username" [(ngModel)]="username"></p>
-    <h1> {{username}}</h1>
 
-    <button type="button" (click)="clickme()">Clickme</button>
-    
-</div> -->
 
-<div id="user-list">
+<div style="text-align:center">
+    <h1>
+       Find by user name
+    </h1>
+    <button  (click)="clickEvent()" >
+    Find user's data</button>
+    <input type="text"  [(ngModel)]="msg">
+
+ </div>
+
+
+<!-- display table only if userList is resolved (is not empty) -->
+<div id="user-list" *ngIf="userList">
    
     <h2>View By User Name</h2>
 
@@ -19,7 +23,6 @@
             <th>Phone Number</th>
             <th>Plan</th>
         </tr>
-        <!-- similar to 'for each' -->
         <!-- {{userList}} -->
         <tr>
             <td>{{ userList.name }}</td>
