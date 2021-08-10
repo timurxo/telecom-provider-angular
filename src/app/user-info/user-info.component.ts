@@ -13,9 +13,8 @@ export class UserInfoComponent implements OnInit {
   constructor(private service: UserService) { }
 
   userToFind!: string;
-  userList!: User;
+  userList!: User[];
 
-  
   msg!:string;
   // toFind!:string;
   
@@ -33,8 +32,16 @@ export class UserInfoComponent implements OnInit {
     // executes function when data is back from backend --- similar to onreadystatechange
     this.service.findByUserName(this.userToFind).subscribe((data) => {
       this.userList = data; // data from backend
-      console.log(this.userList);
+      console.log( data );
       this.msg = '';
+
+
+      // for (var x in this.userList){
+      //   console.log(x);    
+      // }
+      
+
+
   });
   }
 

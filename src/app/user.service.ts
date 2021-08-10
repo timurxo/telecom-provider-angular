@@ -26,8 +26,8 @@ export class UserService {
   //   return this.httpClient.get<User[]>(this.url + "/name/" + name);
   // }
 
-  findByUserName(name: string): Observable<User> {
-    return this.httpClient.get<User>(this.url + "/name/" + name);
+  findByUserName(name: string): Observable<User[]> {
+    return this.httpClient.get<User[]>(this.url + "/name/" + name);
   }
 
   save(user: User): Observable<User>{

@@ -1,3 +1,4 @@
+                <!-- <td>{{ userList.plan }}</td> -->
 
 
 <div style="text-align:center">
@@ -16,7 +17,7 @@
 
     <div id="user-list" >
    
-        <h2>User's {{userList.name}} info</h2>
+        <!-- <h2>User's {{userList.name}} info</h2> -->
     
         <table id="user-table" class="table">
             <tr>
@@ -25,12 +26,13 @@
                 <th>Phone Number</th>
                 <th>Plan</th>
             </tr>
-            <!-- {{userList}} -->
-            <tr>
-                <td>{{ userList.name }}</td>
-                <td>{{ userList.device }}</td>
-                <td>{{ userList.phoneNumber }}</td>
-                <td>{{ userList.plan }}</td>
+
+
+            <tr *ngFor="let user of userList">
+                <td>{{ user.name }}</td>
+                <td>{{ user.device }}</td>
+                <td>{{ user.phoneNumber }}</td>
+                <td>{{ user.plan }}</td>
                 
             </tr>
         </table>
@@ -39,12 +41,12 @@
 
     <div> ------------------------------------------------ </div>
 
-    <div id="adding-new-dev">
-        <h4>{{userList.name}}, do you want to add a new device?</h4>
+    <div id="adding-new-dev" >
+        <h4>{{userList[0].name}}, do you want to add a new device?</h4>
     </div>
 
     <!-- Call child component and pass name of user -->
-    <app-new-device [someName]="userList.name"></app-new-device>
+    <app-new-device [someName]="userList[0].name"></app-new-device>
     
 
 </section>
