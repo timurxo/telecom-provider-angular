@@ -8,13 +8,15 @@ import { NewUserComponent } from './new-user/new-user.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { UserInfoComponent } from './user-info/user-info.component';
+import { NewDeviceComponent } from './new-device/new-device.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     NewUserComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    NewDeviceComponent
   ],
   imports: [
     BrowserModule,

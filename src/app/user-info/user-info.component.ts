@@ -34,13 +34,14 @@ export class UserInfoComponent implements OnInit {
     this.service.findByUserName(this.userToFind).subscribe((data) => {
       this.userList = data; // data from backend
       console.log(this.userList);
-      
+      this.msg = '';
   });
   }
 
 
   
   ngOnInit(): void {
+   
    
   }
 

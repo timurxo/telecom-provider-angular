@@ -12,25 +12,41 @@
 
 
 <!-- display table only if userList is resolved (is not empty) -->
-<div id="user-list" *ngIf="userList">
-   
-    <h2>User's {{userList.name}} info</h2>
+<section id="user-data" *ngIf="userList">
 
-    <table id="user-table" class="table">
-        <tr>
-            <th>User Name</th>
-            <th>Device</th>
-            <th>Phone Number</th>
-            <th>Plan</th>
-        </tr>
-        <!-- {{userList}} -->
-        <tr>
-            <td>{{ userList.name }}</td>
-            <td>{{ userList.device }}</td>
-            <td>{{ userList.phoneNumber }}</td>
-            <td>{{ userList.plan }}</td>
-            
-        </tr>
-    </table>
-</div>
+    <div id="user-list" >
+   
+        <h2>User's {{userList.name}} info</h2>
+    
+        <table id="user-table" class="table">
+            <tr>
+                <th>User Name</th>
+                <th>Device</th>
+                <th>Phone Number</th>
+                <th>Plan</th>
+            </tr>
+            <!-- {{userList}} -->
+            <tr>
+                <td>{{ userList.name }}</td>
+                <td>{{ userList.device }}</td>
+                <td>{{ userList.phoneNumber }}</td>
+                <td>{{ userList.plan }}</td>
+                
+            </tr>
+        </table>
+    </div>
+
+
+    <div> ------------------------------------------------ </div>
+
+    <div id="adding-new-dev">
+        <h4>{{userList.name}}, do you want to add a new device?</h4>
+    </div>
+
+    <!-- Call child component and pass name of user -->
+    <app-new-device [someName]="userList.name"></app-new-device>
+    
+
+</section>
+
 
