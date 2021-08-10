@@ -15,6 +15,8 @@ export class UserInfoComponent implements OnInit {
   userToFind!: string;
   userList!: User[];
 
+  numberOfDevices!: Number;
+
   msg!:string;
   // toFind!:string;
   
@@ -35,7 +37,23 @@ export class UserInfoComponent implements OnInit {
       console.log( data );
       this.msg = '';
 
-  });
+    });
+
+
+
+    // get number of records (devices user has)
+    this.service.getNumberOfDevicesByName(this.userToFind).subscribe((data) => {
+   
+      this.numberOfDevices = data;
+
+      console.log("Number of rows: " + this.numberOfDevices );
+
+    });
+
+
+
+
+
   }
 
   // ---- REMOVE ROW WHEN BUTTON IS CLICKED ---- 

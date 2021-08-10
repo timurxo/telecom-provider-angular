@@ -4,11 +4,21 @@
     <div> <h1>Telecom Provider</h1></div>
 
     <!-- add links -->
-    <a [routerLink]="['/add']">Add User </a>
+    <a [routerLink]="['/add']">Register User </a>
     <div></div>
     <a [routerLink]="['/list']"> View All Users</a>
+    <div> --------- </div>
+    <div>---------</div>
+    <a [routerLink]="['/userInfo']"> Home</a>
+
     <div></div>
-    <a [routerLink]="['/userInfo']"> View User</a>
+    <a [routerLink]="['/userDevices']"> Manage Devices</a>
+
+    <div></div>
+    <a [routerLink]="['/']"> Manage Plans</a>
+
+    <div></div>
+    <a [routerLink]="['/']"> My Bill</a>
     
     <!-- we tell where components will be rendered -->
     <!--  here will be rendered whichever link from above is pressed: for ex. if we have 'add user' then it will be rendered here-->

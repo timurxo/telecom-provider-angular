@@ -35,4 +35,8 @@ export class UserService {
     return this.httpClient.delete<User>(this.url + "/delete/" + id);
   }
 
+  getNumberOfDevicesByName(name: string): Observable<Number> {
+    return this.httpClient.get<Number>(this.url + "/count/" + name);
+  }
+
 }

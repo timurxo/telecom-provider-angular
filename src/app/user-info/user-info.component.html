@@ -3,10 +3,10 @@
 
 <div style="text-align:center">
     <h1>
-       Find by user name
+       Login to your page
     </h1>
     <button  (click)="clickEvent()" >
-    Find user's data</button>
+    Login</button>
     <input type="text"  [(ngModel)]="msg">
 
  </div>
@@ -16,10 +16,13 @@
 <section id="user-data" *ngIf="userList">
 
     <div id="user-list" >
+
+        <h2>HOME</h2>
    
         <!-- <h2>User's {{userList.name}} info</h2> -->
     
-        <h3> Devices for {{userList[0].name}} </h3>
+        <h3 > Devices for {{userList[0].name}} </h3>
+        <h5>*You have {{numberOfDevices}} devices</h5>
         <div> </div>
 
 
@@ -36,17 +39,18 @@
                 <!-- <td>{{ user.name }}</td> -->
                 <td>{{ user.device }}</td>
                 <td>{{ user.phoneNumber }}</td>
-                <td>{{ user.plan }}</td>
-                
+                <td>{{ user.plan }}</td>            
                 <!-- pass clicked row the method -->
                 <td><button (click)="clickRemove(user)">Remove</button></td>
-
+                
             </tr>
         </table>
     </div>
 
 
     <div> ------------------------------------------------ </div>
+
+   
 
     <div id="adding-new-dev" >
         <h4>{{userList[0].name}}, do you want to add a new device?</h4>

@@ -30,11 +30,27 @@ export class NewDeviceComponent implements OnInit {
     this.service.save(this.deviceToSave).subscribe(data => {
       console.log(data);
       console.log("NAME: " + this.someName);
-      
+      alert("New device has been added");
     });
   }
 
   ngOnInit(): void {
   }
+
+
+
+
+  // clickChoosePlanA() {
+  //   alert("You picked plan A");
+  //   // this.deviceToSave.plan = "Plan A";
+  // }
+
+  // clickChoosePlanB() {
+  //   console.log("Plan B was clicked");
+  // }
+
+  // clickChoosePlanC() {
+  //   console.log("Plan C was clicked");
+  // }
 
 }
