@@ -10,9 +10,9 @@ import { summaryForJitFileName } from '@angular/compiler/src/aot/util';
 })
 export class NewDeviceComponent implements OnInit {
 
-  // get data from parent component
-  @Input() someName = '';
-
+  // get data from parent components
+  @Input() someName = '';   // from user-info component
+  @Input() planChosen = '';   // from manage-plans
 
 
 
@@ -26,10 +26,14 @@ export class NewDeviceComponent implements OnInit {
   save(): void {
     // name property of object = name from parent class
     this.deviceToSave.name = this.someName;
+    this.deviceToSave.plan = this.planChosen;
 
     this.service.save(this.deviceToSave).subscribe(data => {
       console.log(data);
       console.log("NAME: " + this.someName);
+      console.log("PLAN CHOSEN: " + this.planChosen);
+
+
       alert("New device has been added");
     });
   }
@@ -40,17 +44,5 @@ export class NewDeviceComponent implements OnInit {
 
 
 
-  // clickChoosePlanA() {
-  //   alert("You picked plan A");
-  //   // this.deviceToSave.plan = "Plan A";
-  // }
-
-  // clickChoosePlanB() {
-  //   console.log("Plan B was clicked");
-  // }
-
-  // clickChoosePlanC() {
-  //   console.log("Plan C was clicked");
-  // }
 
 }

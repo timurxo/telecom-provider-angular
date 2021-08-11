@@ -1,6 +1,8 @@
+<section id="new-dev-section">
+
 <div class="col-lg-6">
     <h2>Add device for {{someName}}</h2>
-    
+    <div>  --------- YOU CHOSE PLAN: {{planChosen}} --------- </div> 
 
     <form (ngSubmit)="save(); deviceForm.reset()" id="new-device"  #deviceForm>
 
@@ -28,29 +30,12 @@
         />
       </div>
 
-      <div class="form-group">
-        <label> Plan</label>
-        <input
-          [(ngModel)]="deviceToSave.plan"
-          name="plan"
-          class="form-control"
-          id="plan"
-          type="text"
-        />
-      </div>
 
-      
-    
-      <!-- <button (click)="clickChoosePlanA()">Plan A</button>
-      <button (click)="clickChoosePlanB()">Plan B</button>
-      <button (click)="clickChoosePlanC()">Plan C</button> -->
-
-
-      
-  
       <div class="form-group">
         <input class="btn btn-primary submit-button" type="submit" value="Add" />
       </div>
     </form>
   </div>
   
+
+  </section>

@@ -146,3 +146,9 @@
 .prices-h {
     padding-bottom: 25px;
 }
+
+
+button {
+  background-color: #222f3d;
+  color: white;
+}
