@@ -9,6 +9,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { NewDeviceComponent } from './new-device/new-device.component';
+import { ManagePlansComponent } from './manage-plans/manage-plans.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NewDeviceComponent } from './new-device/new-device.component';
     UserListComponent,
     NewUserComponent,
     UserInfoComponent,
-    NewDeviceComponent
+    NewDeviceComponent,
+    ManagePlansComponent
   ],
   imports: [
     BrowserModule,

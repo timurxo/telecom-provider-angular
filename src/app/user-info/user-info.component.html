@@ -1,25 +1,109 @@
-                <!-- <td>{{ userList.plan }}</td> -->
+<!-- <td>{{ userList.plan }}</td> -->
+
+<!-- <div style="text-align: center">
+  <h1>Login to your page</h1>
+  <button (click)="clickEvent()">Login</button>
+  <input type="text" [(ngModel)]="msg" />
+</div> -->
 
 
-<div style="text-align:center">
-    <h1>
-       Login to your page
-    </h1>
-    <button  (click)="clickEvent()" >
-    Login</button>
-    <input type="text"  [(ngModel)]="msg">
 
- </div>
+<div class="login-box">
+  <h2>Login</h2>
+ 
+  <div style="text-align: center">
+    
+    
+    <input type="text" [(ngModel)]="msg" />
+    <button (click)="clickEvent()">Login</button>
+  </div>
+    <a href="#">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      
+      
+    </a>
+  
+</div>
+
+
+
+
+
 
 
 <!-- display table only if userList is resolved (is not empty) -->
 <section id="user-data" *ngIf="userList">
+  <div class="page-content page-container" id="page-content">
+    <div class="padding">
+      <div class="row container d-flex justify-content-center">
+        <div class="col-xl-6 col-md-12">
+          <div class="card user-card-full">
+            <div class="row m-l-0 m-r-0">
+              <div class="col-sm-4 bg-c-lite-green user-profile">
+                <div class="card-block text-center text-white">
+                  <div class="m-b-25">
+                    <img
+                      src="https://img.icons8.com/bubbles/100/000000/user.png"
+                      class="img-radius"
+                      alt="User-Profile-Image"
+                    />
+                  </div>
+                  <h6 class="f-w-600">{{ userList[0].name }}</h6>
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <div class="card-block">
+                  <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                
 
-    <div id="user-list" >
+                  <div id="user-list">
+                    <!-- <h2>User's {{userList.name}} info</h2> -->
+
+                    <h3>Your Devices</h3>
+                    <h5>*You have {{ numberOfDevices }} devices</h5>
+                    <div></div>
+
+                    <table id="user-table" class="table">
+                      <tr>
+                        <!-- <th>User Name</th> -->
+                        <th>Device</th>
+                        <th>Phone Number</th>
+                        <th>Plan</th>
+                      </tr>
+
+                      <tr *ngFor="let user of userList">
+                        <!-- <td>{{ user.name }}</td> -->
+                        <td>{{ user.device }}</td>
+                        <td>{{ user.phoneNumber }}</td>
+                        <td>{{ user.plan }}</td>
+                        <!-- pass clicked row the method -->
+                        <td>
+                          <button (click)="clickRemove(user)">Remove</button>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div id="user-list" >
 
         <h2>HOME</h2>
    
-        <!-- <h2>User's {{userList.name}} info</h2> -->
+        
     
         <h3 > Devices for {{userList[0].name}} </h3>
         <h5>*You have {{numberOfDevices}} devices</h5>
@@ -28,7 +112,7 @@
 
         <table id="user-table" class="table">
             <tr>
-                <!-- <th>User Name</th> -->
+                
                 <th>Device</th>
                 <th>Phone Number</th>
                 <th>Plan</th>
@@ -36,31 +120,25 @@
 
             
             <tr *ngFor="let user of userList">
-                <!-- <td>{{ user.name }}</td> -->
+                
                 <td>{{ user.device }}</td>
                 <td>{{ user.phoneNumber }}</td>
                 <td>{{ user.plan }}</td>            
-                <!-- pass clicked row the method -->
+               
                 <td><button (click)="clickRemove(user)">Remove</button></td>
                 
             </tr>
         </table>
-    </div>
+    </div> -->
 
+  <div>------------------------------------------------</div>
 
-    <div> ------------------------------------------------ </div>
+  <div id="adding-new-dev">
+    <h4>{{ userList[0].name }}, do you want to add a new device?</h4>
+  </div>
 
-   
+  <!-- Call child component and pass name of user -->
+  <app-new-device [someName]="userList[0].name"></app-new-device>
 
-    <div id="adding-new-dev" >
-        <h4>{{userList[0].name}}, do you want to add a new device?</h4>
-    </div>
-
-
-    <!-- Call child component and pass name of user -->
-    <app-new-device [someName]="userList[0].name"></app-new-device>
-    
-
+  <app-manage-plans></app-manage-plans>
 </section>
-
-
