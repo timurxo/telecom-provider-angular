@@ -18,7 +18,7 @@ export class UserInfoComponent implements OnInit {
   numberOfDevices!: Number;
 
   msg!:string;
-  // toFind!:string;
+  // toFind!:string; 
   
 
   // ---- GET DATA FROM THE SERVICE WHEN BUTTON IS CLICKED ----

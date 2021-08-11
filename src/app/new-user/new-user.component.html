@@ -1,4 +1,4 @@
-<div class="col-lg-6">
+<!-- <div class="col-lg-6">
     <h2>Register User</h2>
     <form (ngSubmit)="save(); userForm.reset()" id="new-user"  #userForm>
       <div class="form-group">
@@ -49,5 +49,93 @@
         <input class="btn btn-primary submit-button" type="submit" value="Add" />
       </div>
     </form>
-  </div>
+  </div> -->
   
+
+  
+
+
+
+
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+  <style>
+    
+  </style>
+  </head>
+  <body>
+  <div class="signup-form">
+
+
+
+      
+    <form (ngSubmit)="save(); userForm.reset()" id="new-user"  #userForm>
+      <div class="form-group">
+        <label> User Name</label>
+        <input
+          [(ngModel)]="userToSave.name"
+          name="name"
+          class="form-control"
+          id="name"
+          type="text"  
+
+        />
+      
+      </div>
+  
+      <div class="form-group">
+        <label> Device</label>
+        <input
+          [(ngModel)]="userToSave.device"
+          name="device"
+          class="form-control"
+          id="device"
+          type="text"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label> Phone Number</label>
+        <input
+          [(ngModel)]="userToSave.phoneNumber"
+          name="phoneNumber"
+          class="form-control"
+          id="phoneNumber"
+          type="text"
+        />
+      </div>
+
+      <div class="form-group">
+        <label> Plan</label>
+        <input
+          [(ngModel)]="userToSave.plan"
+          name="plan"
+          class="form-control"
+          id="plan"
+          type="text"
+        />
+      </div>
+  
+      <div class="form-group">
+        <input class="btn btn-primary submit-button" type="submit" value="Register" />
+      </div>
+    </form>
+
+
+
+
+    <!-- <div class="text-center">Already have an account? <a href="#">Sign in</a></div> -->
+  </div>
+  </body>
+  </html>

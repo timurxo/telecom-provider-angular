@@ -17,12 +17,19 @@ export class NewUserComponent implements OnInit {
 
   // calls service class
   save(): void {
+
+    console.log(document.getElementsByName('name'));
+    
+    if (!this.userToSave.name) {
+        alert("try again");
+        return;
+    }
+
+
+
     this.service.save(this.userToSave).subscribe(data => {
       console.log(data);
 
-
-      
-      
     });
   }
 
