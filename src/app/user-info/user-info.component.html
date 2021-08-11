@@ -14,7 +14,8 @@
   <div style="text-align: center">
     
     
-    <input type="text" [(ngModel)]="msg" />
+    <input type="text" [(ngModel)]="msg" placeholder="Name"/>
+    <input type="text" placeholder="Password"/>
     <button (click)="clickEvent()">Login</button>
   </div>
     <a href="#">
@@ -29,6 +30,8 @@
 </div>
 
 
+  
+  
 
 
 
@@ -72,6 +75,7 @@
                         <th>Device</th>
                         <th>Phone Number</th>
                         <th>Plan</th>
+                        
                       </tr>
 
                       <tr *ngFor="let user of userList">
@@ -80,6 +84,11 @@
                         <td>{{ user.phoneNumber }}</td>
                         <td>{{ user.plan }}</td>
                         <!-- pass clicked row the method -->
+
+                        <td>
+                          <button >Update</button>
+                        </td>
+
                         <td>
                           <button (click)="clickRemove(user)">Remove</button>
                         </td>

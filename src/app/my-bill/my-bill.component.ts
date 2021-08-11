@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../user.service';
 
 @Component({
@@ -10,6 +10,7 @@ export class MyBillComponent implements OnInit {
 
   constructor(private service: UserService) { }
 
+  @Input() someName = ''; 
   userToFind = 'a';
   plansList!: string[];
   totalBill = 0;
@@ -31,7 +32,7 @@ export class MyBillComponent implements OnInit {
           this.totalBill += 50;
 
         } else if (plan == "Unlimited") {
-          this.totalBill = 100;
+          this.totalBill = 150;
         }
         
       }
