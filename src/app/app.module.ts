@@ -10,6 +10,7 @@ import {FormsModule} from '@angular/forms';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { NewDeviceComponent } from './new-device/new-device.component';
 import { ManagePlansComponent } from './manage-plans/manage-plans.component';
+import { MyBillComponent } from './my-bill/my-bill.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ManagePlansComponent } from './manage-plans/manage-plans.component';
     NewUserComponent,
     UserInfoComponent,
     NewDeviceComponent,
-    ManagePlansComponent
+    ManagePlansComponent,
+    MyBillComponent
   ],
   imports: [
     BrowserModule,

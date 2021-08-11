@@ -39,4 +39,8 @@ export class UserService {
     return this.httpClient.get<Number>(this.url + "/count/" + name);
   }
 
+  getPlansByName(name: string): Observable<string[]> {
+    return this.httpClient.get<string[]>(this.url + "/plans/" + name);
+  }
+
 }
