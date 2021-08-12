@@ -27,7 +27,7 @@ export class UserInfoComponent implements OnInit {
     this.userToFind = this.msg;
 
     if (!this.userToFind) {
-      alert("User was not found!");
+      alert("User was not found! -" + this.userToFind);
       return;
     }
 

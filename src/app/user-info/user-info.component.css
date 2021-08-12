@@ -7,7 +7,8 @@ body {
 }
 
 .user-card-full {
-    overflow: hidden
+    overflow: scroll;
+    width: 150%;
 }
 
 .card {
@@ -59,10 +60,14 @@ h6 {
     line-height: 25px
 }
 
+
+
 @media only screen and (min-width: 1400px) {
     p {
         font-size: 14px
     }
+
+    
 }
 
 .card-block {
@@ -133,24 +138,33 @@ h6 {
 }
 
 
-
+/* 
 #user-data {
     padding-left: 300px;
     padding-right: 300px;
     padding-bottom: 300px;
 
    
-}
+} */
 
-.card-block {
-    padding-left: 100px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 /* ---------- LOGIN FORM ----------- */
-
 html {
     height: 100%;
   }
@@ -214,6 +228,8 @@ html {
     color: #03e9f4;
     font-size: 12px;
   }
+  
+
   
   .login-box form a {
     position: relative;
@@ -327,3 +343,5 @@ html {
 #add-new-device {
   padding-top: 500px;
 }
+
+

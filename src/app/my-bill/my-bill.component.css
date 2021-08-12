@@ -79,9 +79,17 @@ body {
     height: 70px;
     font-size: 20px
 }
-
+/* 
 #bill-box{
     width: 500px;
     height: 500px;
     padding-top: 300px;
+} */
+
+
+
+
+
+.testing-bill-text {
+    margin-bottom: 15px;
 }

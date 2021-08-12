@@ -8,15 +8,18 @@
 
 
 
-<div class="login-box">
+
+
+<!-- <div class="login-box">
   <h2>Login</h2>
  
-  <div style="text-align: center">
+ 
+  <div class="user-box" style="text-align: center">
     
     
     <input type="text" [(ngModel)]="msg" placeholder="Name"/>
     <input type="text" placeholder="Password"/>
-    <button (click)="clickEvent()">Login</button>
+    <button (click)="clickEvent()"  type="button" class="btn btn-info">Login</button>
   </div>
     <a href="#">
       <span></span>
@@ -27,7 +30,36 @@
       
     </a>
   
+ 
+</div> -->
+
+
+
+<div class="login-box">
+  <h2>Login</h2>
+  
+    <div class="user-box">
+      <input type="text" [(ngModel)]="msg" name="" required="">
+      <label>Username</label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="" required="">
+      <label>Password</label>
+    </div>
+    <form>
+    <a (click)="clickEvent()">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Login
+    </a>
+  </form>
 </div>
+
+
+
+
 
 
   
@@ -39,6 +71,8 @@
 
 <!-- display table only if userList is resolved (is not empty) -->
 <section id="user-data" *ngIf="userList">
+
+  
   <div class="page-content page-container" id="page-content">
     <div class="padding">
       <div class="row container d-flex justify-content-center">
@@ -59,7 +93,6 @@
               </div>
               <div class="col-sm-8">
                 <div class="card-block">
-                  <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
                 
 
                   <div id="user-list">
