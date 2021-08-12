@@ -19,7 +19,7 @@ export class MyBillComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.service.getPlansByName(this.userToFind).subscribe((data) => {
+    this.service.getPlansByName(this.someName).subscribe((data) => {
       this.plansList = data; // data from backend
       console.log( "PLANS BY NAME: " + this.plansList );
 
