@@ -38,14 +38,16 @@ export class MyBillComponent implements OnInit {
         this.count2 += 1;
         
       } else if (plan == "Double") {
-        // this.totalBill += 50;
-        this.count2 += 1;
+        this.totalBill += 25;           // ********* fix this one
+        // this.count2 += 1;
 
       } else if (plan == "Unlimited") {
         this.totalBill = 150;
       }
       
     }
+
+   
 
     console.log("Check number of plans: " + this.count2);
   }

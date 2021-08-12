@@ -3,5 +3,13 @@
   width: 50%;
   padding: 10px;
   padding-top: 300px;
+  padding-left: 200px;
 }
 
+#addDv {
+  padding-top: 50px;
+}
+
+input {
+  width: 150%;
+}

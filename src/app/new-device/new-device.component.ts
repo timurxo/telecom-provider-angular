@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import User from '../models/User';
 import { UserService } from '../user.service';
 import { summaryForJitFileName } from '@angular/compiler/src/aot/util';
+import Swal, {SweetAlertOptions} from 'sweetalert2';
 
 @Component({
   selector: 'app-new-device',
@@ -28,13 +29,33 @@ export class NewDeviceComponent implements OnInit {
     this.deviceToSave.name = this.someName;
     this.deviceToSave.plan = this.planChosen;
 
+
+    // ********* fix
+    if (!this.deviceToSave.name || !this.planChosen) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something Went Wrong!'
+      } as SweetAlertOptions);
+        return;
+    } else {
+      Swal.fire({
+        icon: 'success',
+        title: 'Done',
+        text: 'Device has been added!'
+      } as SweetAlertOptions);
+    }
+
+
+
+
     this.service.save(this.deviceToSave).subscribe(data => {
       console.log(data);
       console.log("NAME: " + this.someName);
       console.log("PLAN CHOSEN: " + this.planChosen);
 
 
-      alert("New device has been added");
+     
     });
   }
 

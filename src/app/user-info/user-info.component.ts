@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import User from '../models/User';
 import { Observable } from 'rxjs';
+import Swal, {SweetAlertOptions} from 'sweetalert2';
+
 
 @Component({
   selector: 'app-user-info',
@@ -27,14 +29,28 @@ export class UserInfoComponent implements OnInit {
     this.userToFind = this.msg;
 
     if (!this.userToFind) {
-      alert("User was not found! -" + this.userToFind);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something Went Wrong!'
+      } as SweetAlertOptions);
+      // alert("User was not found! -" + this.userToFind);
       return;
     }
 
     // executes function when data is back from backend --- similar to onreadystatechange
     this.service.findByUserName(this.userToFind).subscribe((data) => {
       this.userList = data; // data from backend
-      console.log( data );
+      console.log( "USER DATA FROM BACKEND: " + this.userList[0].name );
+
+      // ************* fix
+      
+      // if (!(this.userList[0].name == this.msg)) {
+      //   alert("oops");
+      //   return;
+      // }
+
+
       this.msg = '';
 
     });
@@ -66,7 +82,11 @@ export class UserInfoComponent implements OnInit {
     }
 
     this.service.delete(item.id).subscribe((data) => {    
-      alert("your device is removed");   
+      Swal.fire({
+        icon: 'success',
+        title: 'Done',
+        text: 'Your device has been removed!'
+      } as SweetAlertOptions);
   });
     
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import User from '../models/User';
 import { UserService } from '../user.service';
+import Swal, {SweetAlertOptions} from 'sweetalert2';
 
 @Component({
   selector: 'app-new-user',
@@ -21,16 +22,27 @@ export class NewUserComponent implements OnInit {
     console.log(document.getElementsByName('name'));
     
     if (!this.userToSave.name) {
-        alert("try again");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something Went Wrong!'
+      } as SweetAlertOptions);
         return;
+    } else {
+      Swal.fire({
+        icon: 'success',
+        title: 'Yay',
+        text: 'You have registered!'
+      } as SweetAlertOptions);
     }
-
-
 
     this.service.save(this.userToSave).subscribe(data => {
       console.log(data);
 
+
     });
+
+
   }
 
   ngOnInit(): void {
