@@ -49,14 +49,14 @@ export class NewDeviceComponent implements OnInit {
 
 
 
-    this.service.save(this.deviceToSave).subscribe(data => {
-      console.log(data);
-      console.log("NAME: " + this.someName);
-      console.log("PLAN CHOSEN: " + this.planChosen);
+    // this.service.addUser(this.deviceToSave).subscribe(data => {
+    //   console.log(data);
+    //   console.log("NAME: " + this.someName);
+    //   console.log("PLAN CHOSEN: " + this.planChosen);
 
 
      
-    });
+    // });
   }
 
   ngOnInit(): void {

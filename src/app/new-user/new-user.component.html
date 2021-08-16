@@ -82,12 +82,12 @@
       
     <form (ngSubmit)="save(); userForm.reset()" id="new-user"  #userForm>
       <div class="form-group">
-        <label> User Name</label>
+        <label> Your Email</label>
         <input
-          [(ngModel)]="userToSave.name"
-          name="name"
+          [(ngModel)]="userToSave.email"
+          name="email"
           class="form-control"
-          id="name"
+          id="email"
           type="text"  
 
         />
@@ -95,17 +95,17 @@
       </div>
   
       <div class="form-group">
-        <label> Device</label>
+        <label> Select Password</label>
         <input
-          [(ngModel)]="userToSave.device"
-          name="device"
+          [(ngModel)]="userToSave.password"
+          name="password"
           class="form-control"
-          id="device"
+          id="password"
           type="text"
         />
       </div>
   
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label> Phone Number</label>
         <input
           [(ngModel)]="userToSave.phoneNumber"
@@ -125,7 +125,7 @@
           id="plan"
           type="text"
         />
-      </div>
+      </div> -->
   
       <div class="form-group">
         <input class="btn btn-primary submit-button" type="submit" value="Register" />
@@ -133,7 +133,7 @@
     </form>
 
 
-
+    <button (click)="updateUsersTable()">update userplans</button>
 
     <!-- <div class="text-center">Already have an account? <a href="#">Sign in</a></div> -->
   </div>

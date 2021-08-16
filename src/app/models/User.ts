@@ -1,3 +1,6 @@
+
+
+
 class User {
     id!: number;
     name!: string;
@@ -7,3 +10,4 @@ class User {
 }
 
 export default User;
+
