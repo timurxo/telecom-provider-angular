@@ -13,7 +13,7 @@
 <section id="new-dev-section">
 
 <div class="col-lg-6" id="addDv">
-    <h2>Add device for: {{someName}}</h2>
+    <h2>Add device for: {{userData.email}}</h2>
     <div> YOU CHOSE PLAN:  <strong>  {{planChosen}}   </strong>   </div> 
 
     <form (ngSubmit)="save(); deviceForm.reset()" id="new-device"  #deviceForm>
@@ -23,10 +23,10 @@
       <div class="form-group">
         <label> Device</label>
         <input
-          [(ngModel)]="deviceToSave.device"
-          name="device"
+          [(ngModel)]="phoneInfoToSave.phoneName"
+          name="phoneName"
           class="form-control"
-          id="device"
+          id="phoneName"
           type="text"
         />
       </div>
@@ -34,7 +34,7 @@
       <div class="form-group">
         <label> Phone Number</label>
         <input
-          [(ngModel)]="deviceToSave.phoneNumber"
+          [(ngModel)]="phoneInfoToSave.phoneNumber"
           name="phoneNumber"
           class="form-control"
           id="phoneNumber"
@@ -53,7 +53,7 @@
               
   </div>
   
-
+  
 
   
 
@@ -65,4 +65,4 @@
 
   
 
-  <app-my-bill [someName]="someName"></app-my-bill>
+  <app-my-bill [someName]="someName" [userData]="userData"></app-my-bill>

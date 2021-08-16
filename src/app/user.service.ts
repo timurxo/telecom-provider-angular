@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import DATA from './models/DATA';
 import UserInf from './models/UserInf';
 import UserPlans from './models/UserPlans';
+import PhoneInfo from './models/PhoneInfo';
 
 // ---------- THIS SERVICE HANDLE CONNECTION TO BACKEND --------
 
@@ -95,13 +96,28 @@ export class UserService {
     return this.httpClient.post<UserPlans>(this.urlUserPlans, usersplans);
   }
   
+  getUserPlansIdByUserIdAndPlanId(userId: number, planId: number): Observable<number> {
+    return this.httpClient.get<number>(this.urlUserPlans + "/" + userId + "/" + planId);
+  }
 
   // ================================================================================
   // -------------------------------- USER PHONE INFO -------------------------------
   // ================================================================================
+  addPhoneInfo(phoneInfo: PhoneInfo): Observable<PhoneInfo>{
+    return this.httpClient.post<PhoneInfo>(this.urlPhoneInfo, phoneInfo);
+  }
 
+  deletePhoneInfo(id: number): Observable<PhoneInfo>{
+    return this.httpClient.delete<PhoneInfo>(this.urlPhoneInfo + "/delete/" + id);
+  }
 
+  getNumberOfDevicesByUserId(id: number): Observable<number> {
+    return this.httpClient.get<number>(this.urlPhoneInfo + "/numOfDevices/" + id);
+  }
 
+  calculateTotalBillForUser(id: number): Observable<number> {
+    return this.httpClient.get<number>(this.urlPhoneInfo + "/totalPrice/" + id);
+  }
 
   // ================================================================================
   // -------------------------------- PLANS -----------------------------------------

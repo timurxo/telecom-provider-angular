@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../user.service';
+import UserInf from '../models/UserInf';
 
 @Component({
   selector: 'app-my-bill',
@@ -15,41 +16,36 @@ export class MyBillComponent implements OnInit {
   plansList!: string[];
   totalBill = 0;
 
+  @Input() userData!: UserInf;
+
   count2 = 0;
 
   ngOnInit(): void {
 
-    this.service.getPlansByName(this.someName).subscribe((data) => {
-      this.plansList = data; // data from backend
-      console.log( "PLANS BY NAME: " + this.plansList );
+   
 
-    });
+
+    
+    
+
+    // this.service.getPlansByName(this.someName).subscribe((data) => {
+    //   this.plansList = data; // data from backend
+    //   console.log( "PLANS BY NAME: " + this.plansList );
+
+    // });
 
 
   }
 
 
   clickCalculateBill() {
-      // calculate total bill
-    for (var plan of this.plansList) {
-        
-      if (plan == "Single") {
-        this.totalBill += 30;
-        this.count2 += 1;
-        
-      } else if (plan == "Double") {
-        this.totalBill += 25;           // ********* fix this one
-        // this.count2 += 1;
-
-      } else if (plan == "Unlimited") {
-        this.totalBill = 150;
-      }
-      
-    }
-
    
+    this.service.calculateTotalBillForUser(this.userData.user_id).subscribe((data) => {
+      this.totalBill = data; // data from backend
+     console.log("Total bill: " + this.totalBill);
+     
 
-    console.log("Check number of plans: " + this.count2);
+    });
   }
 
 

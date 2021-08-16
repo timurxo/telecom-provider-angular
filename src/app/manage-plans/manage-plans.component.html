@@ -55,10 +55,15 @@
       <div class="plan-select"><button (click)="clickEventC()"  class="btn btn-secondary">SELECT PLAN C</button></div>
       
     </div>
+
+   
     
   </div>
 
+  <button (click)="clickPopulateUserplansTable()"  class="btn btn-secondary">Confirm (populate userplans table)</button>
+  <button (click)="getUserplansId()"  class="btn btn-secondary">find id (get userplansId)</button>
 
-  <app-new-device [someName]="someName" [planChosen]="planChosen"></app-new-device>
+<!-- ?????????????? CHECK -->
+  <app-new-device [someName]="userData.email" [planChosen]="planChosen" [userData]="userData" [userplansId]="userplansId"></app-new-device>
 
   

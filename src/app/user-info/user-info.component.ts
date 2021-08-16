@@ -26,13 +26,7 @@ export class UserInfoComponent implements OnInit {
  
   msg!:string;
   numberOfDevices = 0;
-  // toFind!:string; 
-
-  // !!!!!!!!!!!!!!!!!!!!!!
-  // var dataForTable = {
-  //   a: 'a';
-  // };
-  
+ 
   
 
   // ---- GET DATA FROM THE SERVICE WHEN BUTTON IS CLICKED ----
@@ -54,35 +48,19 @@ export class UserInfoComponent implements OnInit {
       console.log( "USER DATA FROM BACKEND: " + this.userData);
       this.msg = '';
 
-      // this.userDataPlan = this.userData.userPlans[0].plans;
-      // this.userDataPhoneInfo = this.userData.userPlans[0].phoneInfo[0];
     });
 
 
       console.log('----');   
       
 
-      console.log("userDataPlan: ---- ");
-      // console.log(this.userDataPlan);
-      // console.log(this.userDataPlan.cost);
-      // console.log(this.userDataPlan.maxDevices);
+      // display number of devices user has in total
+      this.service.getNumberOfDevicesByUserId(this.userData.user_id).subscribe((data) => {
+        this.numberOfDevices = data; 
+        console.log("COUNT: " + this.numberOfDevices);
+      });
       
-      // console.log("userDataPhoneInfo: ---- ");
-      // console.log(this.userDataPhoneInfo);
-      // console.log(this.userDataPhoneInfo.phoneName);
-
-
-      // check if device exists -> add to count
-      for (var p of this.userData.userPlans) {
-        
-          for (var pInf of p.phoneInfo) {
-              if (pInf.phoneName) {
-                this.numberOfDevices++;
-              }
-          }
-      }
       
-      console.log("COUNT: " + this.numberOfDevices);
       
 
   }
@@ -98,13 +76,13 @@ export class UserInfoComponent implements OnInit {
       return;
     }
 
-  //   this.service.delete(item.id).subscribe((data) => {    
-  //     Swal.fire({
-  //       icon: 'success',
-  //       title: 'Done',
-  //       text: 'Your device has been removed!'
-  //     } as SweetAlertOptions);
-  // });
+    this.service.deletePhoneInfo(phoneId).subscribe((data) => {    
+      Swal.fire({
+        icon: 'success',
+        title: 'Done',
+        text: 'Your device has been removed!'
+      } as SweetAlertOptions);
+  });
     
   }
 
