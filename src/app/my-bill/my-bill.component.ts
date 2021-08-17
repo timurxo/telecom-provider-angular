@@ -20,7 +20,12 @@ export class MyBillComponent implements OnInit {
   // @Input() userData!: UserInf;
   userData!: UserInf;
 
-  count2 = 0;
+  // count2 = 0;
+
+  numOfDevicesWithPlanA!: number;
+  numOfDevicesWithPlanB!: number;
+  numOfDevicesWithPlanC!: number;
+
 
   ngOnInit(): void {
 
@@ -35,11 +40,17 @@ export class MyBillComponent implements OnInit {
     
     
 
-    // this.service.getPlansByName(this.someName).subscribe((data) => {
-    //   this.plansList = data; // data from backend
-    //   console.log( "PLANS BY NAME: " + this.plansList );
+    this.service.getNumberOfDevicesForEachPlan(this.userData.user_id, 1).subscribe((data) => {
+      this.numOfDevicesWithPlanA = data; 
+    });
 
-    // });
+    this.service.getNumberOfDevicesForEachPlan(this.userData.user_id, 2).subscribe((data) => {
+      this.numOfDevicesWithPlanB = data; 
+    });
+
+    this.service.getNumberOfDevicesForEachPlan(this.userData.user_id, 3).subscribe((data) => {
+      this.numOfDevicesWithPlanC = data; 
+    });
 
 
   }

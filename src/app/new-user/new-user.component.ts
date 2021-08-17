@@ -19,6 +19,9 @@ export class NewUserComponent implements OnInit {
 
   foundId!: number;
   
+  username!: string;
+  password!: string;
+
   
 
   // inject service
@@ -28,6 +31,9 @@ export class NewUserComponent implements OnInit {
   save(): void {
 
     console.log(document.getElementsByName('name'));
+
+    this.userToSave.email = this.username;
+    this.userToSave.password = this.password;
 
     // this.userToSave.pop;
     
@@ -50,6 +56,8 @@ export class NewUserComponent implements OnInit {
     this.service.addUser(this.userToSave).subscribe(data => {
       console.log(data);
 
+      this.username = '';
+      this.password = '';
     });
 
   
@@ -60,29 +68,8 @@ export class NewUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    // this.populateUserPlans.plans_plan_id = 1;
     
   }
 
-  updateUsersTable() {
-
-      // get id from 'user_info'
-      this.service.getUsersId(this.userToSave.email).subscribe(data => {
-        console.log("USER'S ID: " + data);
-        this.foundId = data;
-  
-      });
-
-    this.populateUserPlans.plans_plan_id = 3;
-    this.populateUserPlans.user_info_user_id = this.foundId;
-    // insert into 'userplans' table (3 times with the same user_info_user_id)
-    
-    this.service.addUserPlans(this.populateUserPlans).subscribe(data => {
-        console.log("populating userplans table: " + data);
-        
-    });
-
-  }
 
 }

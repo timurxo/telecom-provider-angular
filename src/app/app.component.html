@@ -22,13 +22,25 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text&display=swap" rel="stylesheet"> 
  
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet"> 
+
+
+
+
       <!-- SWAL -->
       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+      
   
     </head>
 
 
 
+   
 
 
 
@@ -38,10 +50,23 @@
   <!-- <img class="image1" src="https://www.deerfield-beach.com/ImageRepository/Document?documentID=16256" alt="alternatetext">  -->
 
   <div class="my-top-container" ></div>
-            <div> <h1>Telecom Provider</h1></div>
+           
+
+
+            <nav class="navbar fixed-top navbar-light bg-light">
+              <div> <h1 id="website-header">Telecom Provider</h1></div>
+              
+              <a [routerLink]="['/add']">Register User</a>
+              <a [routerLink]="['/list']"> Test Stuff</a>
+              <a [routerLink]="['/login']">Login </a>
+              <a [routerLink]="['/userInfo']"> Home</a>
+              <a [routerLink]="['/managePlans']">manage plans </a>
+              <a [routerLink]="['/myBill']">My Bill </a>
+            </nav>
+
 
             <!-- add links -->
-            <a [routerLink]="['/add']">Register User</a>
+            <!-- <a [routerLink]="['/add']">Register User</a>
             <div></div>
             <a [routerLink]="['/list']"> Test Stuff</a>
             <div></div>
@@ -54,7 +79,7 @@
             <a [routerLink]="['/userDevices']">user devices (*delete?) </a>
             
             <div></div>
-            <a [routerLink]="['/myBill']">My Bill </a>
+            <a [routerLink]="['/myBill']">My Bill </a> -->
   <div>
 
 

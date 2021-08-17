@@ -1,58 +1,4 @@
-<!-- <div class="col-lg-6">
-    <h2>Register User</h2>
-    <form (ngSubmit)="save(); userForm.reset()" id="new-user"  #userForm>
-      <div class="form-group">
-        <label> User Name</label>
-        <input
-          [(ngModel)]="userToSave.name"
-          name="name"
-          class="form-control"
-          id="name"
-          type="text"
-        />
-      </div>
-  
-      <div class="form-group">
-        <label> Device</label>
-        <input
-          [(ngModel)]="userToSave.device"
-          name="device"
-          class="form-control"
-          id="device"
-          type="text"
-        />
-      </div>
-  
-      <div class="form-group">
-        <label> Phone phoneNumber</label>
-        <input
-          [(ngModel)]="userToSave.phoneNumber"
-          name="phoneNumber"
-          class="form-control"
-          id="phoneNumber"
-          type="text"
-        />
-      </div>
 
-      <div class="form-group">
-        <label> Plan</label>
-        <input
-          [(ngModel)]="userToSave.plan"
-          name="plan"
-          class="form-control"
-          id="plan"
-          type="text"
-        />
-      </div>
-  
-      <div class="form-group">
-        <input class="btn btn-primary submit-button" type="submit" value="Add" />
-      </div>
-    </form>
-  </div> -->
-  
-
-  
 
 
 
@@ -75,6 +21,54 @@
   </style>
   </head>
   <body>
+
+
+    <div class="login-box">
+      <h2>Register</h2>
+      
+        <div class="user-box">
+          <input
+          [(ngModel)]="username"
+          name="email"
+          class="form-control"
+          id="email"
+          type="text"  
+
+        />
+          <label>Username</label>
+        </div>
+        <div class="user-box">
+          <input
+          [(ngModel)]="password"
+          name="password"
+          class="form-control"
+          id="password"
+          type="text"
+        />
+          <label>Password</label>
+        </div>
+        <form >
+        <a (click)="save()">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Register
+        </a>
+      </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
   <div class="signup-form">
 
 
@@ -104,38 +98,29 @@
           type="text"
         />
       </div>
-  
-      <!-- <div class="form-group">
-        <label> Phone Number</label>
-        <input
-          [(ngModel)]="userToSave.phoneNumber"
-          name="phoneNumber"
-          class="form-control"
-          id="phoneNumber"
-          type="text"
-        />
-      </div>
 
-      <div class="form-group">
-        <label> Plan</label>
-        <input
-          [(ngModel)]="userToSave.plan"
-          name="plan"
-          class="form-control"
-          id="plan"
-          type="text"
-        />
-      </div> -->
   
       <div class="form-group">
         <input class="btn btn-primary submit-button" type="submit" value="Register" />
       </div>
     </form>
 
+  </div> -->
+
+
+
+
+
+
+
+    
 
     <!-- <button (click)="updateUsersTable()">update userplans</button> -->
 
     <!-- <div class="text-center">Already have an account? <a href="#">Sign in</a></div> -->
-  </div>
+ 
+
+
+    
   </body>
   </html>

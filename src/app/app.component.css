@@ -6,6 +6,19 @@
     background-size: cover;
 }
 
+#website-header {
+    text-align: center;
+   padding-top: 10px;
+   font-family: 'Dancing Script', cursive;
+}
+
+.navbar {
+    padding-right: 50px;
+}
+
+
+
+
 /* .my-top-container {
     position: absolute;
   top: 50%;
