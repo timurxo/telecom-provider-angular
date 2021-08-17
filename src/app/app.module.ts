@@ -11,6 +11,7 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { NewDeviceComponent } from './new-device/new-device.component';
 import { ManagePlansComponent } from './manage-plans/manage-plans.component';
 import { MyBillComponent } from './my-bill/my-bill.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MyBillComponent } from './my-bill/my-bill.component';
     UserInfoComponent,
     NewDeviceComponent,
     ManagePlansComponent,
-    MyBillComponent
+    MyBillComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,

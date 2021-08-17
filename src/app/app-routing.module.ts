@@ -6,6 +6,7 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { NewDeviceComponent } from './new-device/new-device.component';
 import { ManagePlansComponent } from './manage-plans/manage-plans.component';
 import { MyBillComponent } from './my-bill/my-bill.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,9 @@ const routes: Routes = [
   },
   {
     path: 'list', component: UserListComponent
+  },
+  {
+    path: 'login', component: LoginPageComponent
   },
   {
     path: 'userInfo', component: UserInfoComponent

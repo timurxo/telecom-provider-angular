@@ -30,45 +30,19 @@ export class UserInfoComponent implements OnInit {
   numberOfDevices = 0;
  
   
+  ngOnInit(): void {
 
-  // ---- GET DATA FROM THE SERVICE WHEN BUTTON IS CLICKED ----
-  clickEvent(){
-    console.log(this.msg);
-    this.userToFind = this.msg;
-
-    if (!this.userToFind) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Something Went Wrong!'
-      } as SweetAlertOptions);
-      return;
-    }
-
-    this.service.queryUserTableByEmail(this.userToFind).subscribe((data) => {
-      this.userData = data; 
-      // set value in Service -> share with child components
-      this.service.setShareUserData(this.userData);
-
-      console.log( "USER DATA FROM BACKEND: " + this.userData);
-      this.msg = '';
-
+    this.userData = this.service.getShareUserData();
+    
+    // display number of devices user has in total
+    this.service.getNumberOfDevicesByUserId(this.userData.user_id).subscribe((data) => {
+      this.numberOfDevices = data; 
+      console.log("COUNT: " + this.numberOfDevices);
     });
-
-
-      console.log('----');   
-      
-
-      // display number of devices user has in total
-      this.service.getNumberOfDevicesByUserId(this.userData.user_id).subscribe((data) => {
-        this.numberOfDevices = data; 
-        console.log("COUNT: " + this.numberOfDevices);
-      });
-      
-      
-      
-      
+    
+   
   }
+
 
 
 
@@ -92,17 +66,6 @@ export class UserInfoComponent implements OnInit {
   }
 
   
-  ngOnInit(): void {
-
-    
-   
-   
-  }
-
-  // share data with children components
-  // dataToChildren = () => {
-  //   this.service.usr.next(this.userData);
-  // }
 
   
 
