@@ -63,7 +63,7 @@
                         <td>{{userD.plans.maxDevices}}</td>
 
                         <td>
-                          <button >Update</button>
+                          <button (click)="showDiv.current = !showDiv.current">Update</button>
                         </td>
 
                         <td>
@@ -109,6 +109,70 @@
     <!-- <app-manage-plans></app-manage-plans>  -->
   </div>
   
+
+
+
+
+
+
+  <div class="row"  *ngIf="showDiv.current" id="when-update-pressed">
+
+
+    <form class="form-inline" style="padding-top: 15px;">
+
+            <!-- UPDATE PHONE INFO -->
+            <label class="sr-only" for="inlineFormInputName2">Name</label>
+            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Phone Name">
+        
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+            <div class="input-group-prepend">
+
+            </div>
+            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Phone Number">
+            </div>
+        
+            <button type="submit" class="btn btn-primary mb-2">Update Phone Info </button>
+    </form>
+
+    <form class="form-inline">
+       
+        <div class="input-group mb-2 mr-sm-2">
+            <div class="input-group-prepend">
+
+            </div>
+            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Plan">
+        </div>
+        
+        <button type="submit" class="btn btn-primary mb-2">Update Plan</button>
+    </form>
+
+
+
+
+
+
+   
+    <div class="input-group mb-2 mr-sm-2">
+         <button (click)="showDiv.current = !showDiv.current" class="btn btn-primary mb-2"> Hide</button>
+     </div>
+    
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

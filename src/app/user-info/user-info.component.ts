@@ -65,6 +65,11 @@ export class UserInfoComponent implements OnInit {
     
   }
 
+
+  // for update functionality
+  showDiv = {
+    current : false
+  }
   
 
   

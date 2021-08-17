@@ -1,31 +1,67 @@
 
-<!-- <div id="user-list">
-    <h2>View All Users</h2>
-    <button class="btn btn-primary btn-block payment-button"   (click)="checkUserDataById()">TEST USER DATA BY ID</button>
-    <button class="btn btn-primary btn-block payment-button"   (click)="checkUserDataByEmail()">TEST USER DATA BY EMAIL</button>
-    <table id="user-table" class="table">
-        <tr>
-            <th>User Name</th>
-            <th>Device</th>
-            <th>Phone Number</th>
-            <th>Plan</th>
-        </tr>
-       
-        <tr *ngFor="let user of userList">
-            <td>{{ user.name }}</td>
-            <td>{{ user.device }}</td>
-            <td>{{ user.phoneNumber }}</td>
-            <td>{{ user.plan }}</td>
+
+
+
+<h4>TEST</h4>
+<h4>TEST</h4>
+<h4>TEST</h4>
+
+<h4>TEST</h4>
+<h4>TEST</h4>
+
+
+<div class="container">
+  
+    <button (click)="showDiv.current = !showDiv.current">UPDATE</button>
+
+    <!-- display div only if button was clicked -->
+    <div class="row"  *ngIf="showDiv.current">
+
+
+        <form class="form-inline" style="padding-top: 15px;">
+
+                <!-- UPDATE PHONE INFO -->
+                <label class="sr-only" for="inlineFormInputName2">Name</label>
+                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Phone Name">
             
-        </tr>
-    </table>
-</div> -->
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+
+                </div>
+                <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Phone Number">
+                </div>
+            
+                <button type="submit" class="btn btn-primary mb-2">Update Phone Info </button>
+        </form>
+
+        <form class="form-inline">
+            <!-- UPDATE PLAN-->
+            <!-- <label class="sr-only" for="inlineFormInputName2">Name</label> -->
+            <!-- <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe"> -->
+            <div>Update Plan</div>
+            <!-- <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label> -->
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+
+                </div>
+                <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Plan">
+            </div>
+            
+            <button type="submit" class="btn btn-primary mb-2">Update Plan</button>
+        </form>
 
 
 
-<h4>TEST</h4>
-<h4>TEST</h4>
-<h4>TEST</h4>
 
-<h4>TEST</h4>
-<h4>TEST</h4>
+
+
+       
+        <div class="input-group mb-2 mr-sm-2">
+             <button (click)="showDiv.current = !showDiv.current" class="btn btn-primary mb-2"> Hide</button>
+         </div>
+        
+
+
+    </div>
+</div>

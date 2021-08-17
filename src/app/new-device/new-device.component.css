@@ -3,7 +3,9 @@
   width: 50%;
   padding: 10px;
   /* padding-top: 50px; */
-  padding-left: 200px;
+  padding-left: 180px;
+
+  /* width: auto; */
 }
 
 #addDv {
