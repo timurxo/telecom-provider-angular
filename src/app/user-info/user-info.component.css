@@ -151,9 +151,9 @@ h6 {
 
 
 
-#add-new-device {
+/* #add-new-device {
   padding-top: 500px;
-}
+} */
 
 
 #user-data {
@@ -163,4 +163,10 @@ h6 {
 
 .f-w-600 {
   font-size: 20px;
+}
+
+
+.page-content {
+    margin:0 auto;
+    display:block;
 }

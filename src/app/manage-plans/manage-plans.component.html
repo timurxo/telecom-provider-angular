@@ -61,8 +61,18 @@
   </div>
 
   <div class="additional-btns">
-    <button (click)="clickPopulateUserplansTable()"  class="btn btn-secondary">Add new plan (populate userplans table)</button>
-    <button (click)="getUserplansId()"  class="btn btn-secondary">find id (get userplansId)</button>
+    <div class="add-plan-div">
+      <h3>Do you want to add a new plan? {{planChosen}}</h3>
+      <!--  (populate userplans table) -->
+      <button (click)="clickPopulateUserplansTable()"  class="btn btn-secondary" id="add-userplans-btn">Add new plan</button>
+    </div>
+   
+      <hr>
+
+    <div>
+      <!-- find id (get userplansId) -->
+    <button (click)="getUserplansId()"  class="btn btn-secondary" id="get-userplans-id-btn">Check If I Can Add a New Phone</button>
+  </div>
 
   </div>
 

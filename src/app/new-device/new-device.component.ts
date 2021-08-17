@@ -7,6 +7,7 @@ import UserInf from '../models/UserInf';
 import UserPlans from '../models/UserPlans';
 import PhoneInfo from '../models/PhoneInfo';
 
+
 @Component({
   selector: 'app-new-device',
   templateUrl: './new-device.component.html',
@@ -54,7 +55,12 @@ export class NewDeviceComponent implements OnInit {
     
     this.service.addPhoneInfo(this.phoneInfoToSave).subscribe(data => {
       console.log(data);
-      alert("phone info was saved")
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Done!',
+        text: 'You have added a phone info!'
+      } as SweetAlertOptions);
     });
 
       console.log("TRYING TO SEND: " + this.phoneInfoToSave);

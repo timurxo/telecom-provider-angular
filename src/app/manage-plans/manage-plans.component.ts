@@ -15,7 +15,7 @@ export class ManagePlansComponent implements OnInit {
   userData!: UserInf;
   // @Input() someName = '';   // name of user from user-info component
   // planChosen = 'No Plan';
-  planChosen = 1;
+  planChosen!: number;
 
   populateUserPlans: UserPlans = new UserPlans();
 
@@ -74,6 +74,17 @@ export class ManagePlansComponent implements OnInit {
     console.log(this.populateUserPlans.user_info_user_id);
     console.log(this.populateUserPlans.plans_plan_id);
 
+    // if plan isn't picked
+    if (!this.planChosen) {
+      Swal.fire({
+        icon: 'error',
+        title: 'nope',
+        text: 'Pick a plan first'
+      } as SweetAlertOptions);
+
+        return;
+    }
+
     // if user already has that plan -> exit function
     if (this.plansUserAlreadyHas.includes(this.populateUserPlans.plans_plan_id)) {
       Swal.fire({
@@ -108,6 +119,12 @@ export class ManagePlansComponent implements OnInit {
       console.log("data from backend: " + data);
       this.userplansId = data;
       console.log("UserPlans id: " + this.userplansId);
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'You can now add a phone info!'
+      } as SweetAlertOptions);
 
       
     });
