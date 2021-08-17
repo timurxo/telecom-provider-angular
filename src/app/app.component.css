@@ -1,0 +1,32 @@
+.container-fluid {
+    font-family: 'STIX Two Text', serif;
+    background-color: #EDF6E5;
+
+    background-image: url("https://images5.alphacoders.com/112/1120171.jpg");
+    background-size: cover;
+}
+
+/* .my-top-container {
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image1 {
+    height: 100%;
+    width: 100%;
+    opacity: 0.9;
+    filter: brightness(50%);
+  } */
+
+
+/*
+  .my-top-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.9;
+    padding-bottom: 180px;
+  } */

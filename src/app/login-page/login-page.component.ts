@@ -45,14 +45,14 @@ export class LoginPageComponent implements OnInit {
       // set value in Service -> share with child components
       this.service.setShareUserData(this.userData);
 
-      console.log( "USER DATA FROM BACKEND: " + this.userData);
-      this.msg = '';
-
       Swal.fire({
         icon: 'success',
-        title: 'Welcome!',
+        title: 'Welcome, ' + this.msg + "!",
         text: 'You have successfully logged in!'
       } as SweetAlertOptions);
+
+      console.log( "USER DATA FROM BACKEND: " + this.userData);
+      this.msg = '';
 
     });
 
