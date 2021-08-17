@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import User from './models/User';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import DATA from './models/DATA';
 import UserInf from './models/UserInf';
 import UserPlans from './models/UserPlans';
@@ -13,6 +13,15 @@ import PhoneInfo from './models/PhoneInfo';
   providedIn: 'root'
 })
 export class UserService {
+
+  // service to share UserInf obejct among parent-children components
+  shareUserData!: UserInf;
+  setShareUserData(userInf: UserInf) {
+    this.shareUserData = userInf;
+  }
+  getShareUserData() {
+    return this.shareUserData;
+  }
 
   // we gonna send calls here 
   urlUser = 'http://localhost:8080/users/user';

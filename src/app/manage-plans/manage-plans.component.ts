@@ -11,8 +11,9 @@ import Swal, {SweetAlertOptions} from 'sweetalert2';
 })
 export class ManagePlansComponent implements OnInit {
 
-  @Input() userData!: UserInf;
-  @Input() someName = '';   // name of user from user-info component
+  // @Input() userData!: UserInf;
+  userData!: UserInf;
+  // @Input() someName = '';   // name of user from user-info component
   // planChosen = 'No Plan';
   planChosen = 1;
 
@@ -22,7 +23,13 @@ export class ManagePlansComponent implements OnInit {
 
   constructor(private service: UserService) { }
 
+  asd!: UserInf;
+
   ngOnInit(): void {
+
+    console.log("CHECK SHARING DATA: " + this.service.getShareUserData().email);
+    this.userData = this.service.getShareUserData();
+    
 
     // userId column in Userplans table
     this.populateUserPlans.user_info_user_id = this.userData.user_id;

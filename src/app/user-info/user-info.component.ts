@@ -17,6 +17,8 @@ export class UserInfoComponent implements OnInit {
 
   constructor(private service: UserService) { }
 
+  
+
   userToFind!: string;
   userData!: UserInf;
   userDataPlan!: Plans;
@@ -45,6 +47,9 @@ export class UserInfoComponent implements OnInit {
 
     this.service.queryUserTableByEmail(this.userToFind).subscribe((data) => {
       this.userData = data; 
+      // set value in Service -> share with child components
+      this.service.setShareUserData(this.userData);
+
       console.log( "USER DATA FROM BACKEND: " + this.userData);
       this.msg = '';
 
@@ -62,7 +67,7 @@ export class UserInfoComponent implements OnInit {
       
       
       
-
+      
   }
 
 
@@ -88,11 +93,16 @@ export class UserInfoComponent implements OnInit {
 
   
   ngOnInit(): void {
+
+    
    
    
   }
 
- 
+  // share data with children components
+  // dataToChildren = () => {
+  //   this.service.usr.next(this.userData);
+  // }
 
   
 

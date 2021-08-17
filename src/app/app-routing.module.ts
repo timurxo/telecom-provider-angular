@@ -4,6 +4,8 @@ import { NewUserComponent } from './new-user/new-user.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { NewDeviceComponent } from './new-device/new-device.component';
+import { ManagePlansComponent } from './manage-plans/manage-plans.component';
+import { MyBillComponent } from './my-bill/my-bill.component';
 
 const routes: Routes = [
   {
@@ -17,6 +19,12 @@ const routes: Routes = [
   },
   {
     path: 'userDevices', component: NewDeviceComponent
+  },
+  {
+    path: 'managePlans', component: ManagePlansComponent
+  },
+  {
+    path: 'myBill', component: MyBillComponent
   }
 ];
 

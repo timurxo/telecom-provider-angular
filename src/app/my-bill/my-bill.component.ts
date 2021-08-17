@@ -11,22 +11,24 @@ export class MyBillComponent implements OnInit {
 
   constructor(private service: UserService) { }
 
-  @Input() someName = ''; 
+  // @Input() someName = ''; 
+  someName = this.service.getShareUserData().email;
   userToFind = 'a';
   plansList!: string[];
   totalBill = 0;
 
-  @Input() userData!: UserInf;
+  // @Input() userData!: UserInf;
+  userData!: UserInf;
 
   count2 = 0;
 
   ngOnInit(): void {
 
-   
+    this.userData = this.service.getShareUserData();
 
     this.service.calculateTotalBillForUser(this.userData.user_id).subscribe((data) => {
       this.totalBill = data; // data from backend
-     console.log("Total bill: " + this.totalBill);
+      console.log("Total bill: " + this.totalBill);
      
 
     });

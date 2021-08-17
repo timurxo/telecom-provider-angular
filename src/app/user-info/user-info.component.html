@@ -120,61 +120,25 @@
     </div>
   </div>
 
-  <h6>bla bla</h6>
 
-  <!-- <div id="user-list" >
 
-        <h2>HOME</h2>
-   
-        
+
     
-        <h3 > Devices for {{userList[0].name}} </h3>
-        <h5>*You have {{numberOfDevices}} devices</h5>
-        <div> </div>
-
-
-        <table id="user-table" class="table">
-            <tr>
-                
-                <th>Device</th>
-                <th>Phone Number</th>
-                <th>Plan</th>
-            </tr>
-
-            
-            <tr *ngFor="let user of userList">
-                
-                <td>{{ user.device }}</td>
-                <td>{{ user.phoneNumber }}</td>
-                <td>{{ user.plan }}</td>            
-               
-                <td><button (click)="clickRemove(user)">Remove</button></td>
-                
-            </tr>
-        </table>
-    </div> -->
-
   
 
   <div>
     <!-- CALL CHILD COMPONENT AND PASS DATA TO IT -->
     <!-- <app-manage-plans [someName]="userData.email"></app-manage-plans> -->
-    <app-manage-plans [userData]="userData"></app-manage-plans>
-  </div>
-  
-
-
-
-  <div id="add-new-device">
     
-    <!-- <div id="adding-new-dev">
-      <h4>{{ userList[0].name }}, do you want to add a new device?</h4>
-    </div> -->
-  
-    <!-- Call child component and pass name of user -->
-    <!-- <app-new-device [someName]="userList[0].name"></app-new-device> -->
-
+    
+    <!-- <app-manage-plans [userData]="userData"></app-manage-plans> -->
+    <!-- <app-manage-plans></app-manage-plans>  -->
   </div>
+  
+
+
+
+  
 
   
 
