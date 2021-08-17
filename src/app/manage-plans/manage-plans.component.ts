@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import UserInf from '../models/UserInf';
 import UserPlans from '../models/UserPlans';
 import { UserService } from '../user.service';
+import Swal, {SweetAlertOptions} from 'sweetalert2';
 
 @Component({
   selector: 'app-manage-plans',
@@ -17,6 +18,7 @@ export class ManagePlansComponent implements OnInit {
 
   populateUserPlans: UserPlans = new UserPlans();
 
+  plansUserAlreadyHas!: number[];
 
   constructor(private service: UserService) { }
 
@@ -24,6 +26,13 @@ export class ManagePlansComponent implements OnInit {
 
     // userId column in Userplans table
     this.populateUserPlans.user_info_user_id = this.userData.user_id;
+
+    // check planID's user already has
+    this.service.checkPlansUserHas(this.userData.user_id).subscribe(data => {
+      console.log("PLANS USER ALREADY HAS: " + data);
+      this.plansUserAlreadyHas = data;
+      
+    });
 
   }
 
@@ -58,8 +67,26 @@ export class ManagePlansComponent implements OnInit {
     console.log(this.populateUserPlans.user_info_user_id);
     console.log(this.populateUserPlans.plans_plan_id);
 
+    // if user already has that plan -> exit function
+    if (this.plansUserAlreadyHas.includes(this.populateUserPlans.plans_plan_id)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'nope',
+        text: 'You already bought this plan'
+      } as SweetAlertOptions);
+
+        return;
+    }
+
+    // add plan if user doesn't have it yet
     this.service.addUserPlans(this.populateUserPlans).subscribe(data => {
       console.log("populating userplans table: " + data);
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Done',
+        text: 'You added plan ' + data.plans_plan_id
+      } as SweetAlertOptions);
       
     });
 

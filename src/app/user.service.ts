@@ -100,6 +100,10 @@ export class UserService {
     return this.httpClient.get<number>(this.urlUserPlans + "/" + userId + "/" + planId);
   }
 
+  checkPlansUserHas(userId: number): Observable<number[]> {
+    return this.httpClient.get<number[]>(this.urlUserPlans + "/checkPlans/" + userId);
+  }
+
   // ================================================================================
   // -------------------------------- USER PHONE INFO -------------------------------
   // ================================================================================

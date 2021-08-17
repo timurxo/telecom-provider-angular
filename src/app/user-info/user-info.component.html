@@ -60,7 +60,7 @@
                     <!-- <h2>User's {{userList.name}} info</h2> -->
 
                     <h3>Your Devices</h3>
-                    <h5>*You have {{ numberOfDevices }} devices  (*fix)</h5>
+                    <h5>*You have {{ numberOfDevices }} devices  </h5>
                     <div></div>
 
                     <table id="user-table" class="table">
@@ -69,7 +69,7 @@
                         <th>Device</th>
                         <th>Phone Number</th>
                         <th>Plan</th>
-                        <th>Plan $</th>
+                        <th>Plan Price</th>
                         <th>Max Devices</th>
                         
                       </tr>
@@ -80,12 +80,12 @@
                       <!-- QUERY PHONEINFO TABLE -->
                       <tr *ngFor="let userDev of userD.phoneInfo">                    
 
-                        <td>{{ userDev.phoneName}}  {{userDev.phone_id}}</td>
+                        <td>{{ userDev.phoneName}} </td>
                         <td>{{ userDev.phoneNumber}}</td>
 
                         <!-- plan information -->
                         <td>{{userD.plans.plan_id}}</td>
-                        <td>{{userD.plans.cost}}</td>
+                        <td>${{userD.plans.cost}}</td>
                         <td>{{userD.plans.maxDevices}}</td>
 
                         <td>
@@ -108,7 +108,7 @@
                     </table>
                   </div>
 
-
+                    
 
 
                 </div>
@@ -119,6 +119,8 @@
       </div>
     </div>
   </div>
+
+  <h6>bla bla</h6>
 
   <!-- <div id="user-list" >
 

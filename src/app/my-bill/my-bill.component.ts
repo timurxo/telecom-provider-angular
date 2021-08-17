@@ -24,7 +24,12 @@ export class MyBillComponent implements OnInit {
 
    
 
+    this.service.calculateTotalBillForUser(this.userData.user_id).subscribe((data) => {
+      this.totalBill = data; // data from backend
+     console.log("Total bill: " + this.totalBill);
+     
 
+    });
     
     
 
@@ -40,12 +45,7 @@ export class MyBillComponent implements OnInit {
 
   clickCalculateBill() {
    
-    this.service.calculateTotalBillForUser(this.userData.user_id).subscribe((data) => {
-      this.totalBill = data; // data from backend
-     console.log("Total bill: " + this.totalBill);
-     
-
-    });
+    
   }
 
 

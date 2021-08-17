@@ -20,7 +20,7 @@
         <li><i class="ion-checkmark"> </i>Daily Backups</li>
       </ul>
       <!-- <div class="plan-select"  ><a href="">Select Plan A</a></div> -->
-      <div class="plan-select"><button (click)="clickEventA()"  class="btn btn-secondary">SELECT PLAN A</button></div>
+      <div class="plan-select"><button (click)="clickEventA()"  class="btn btn-secondary">SELECT PLAN 1</button></div>
     </div>
     <div class="plan">
       <h3 class="plan-title">
@@ -36,7 +36,7 @@
         <li><i class="ion-checkmark"> </i>Daily Backups</li>
       </ul>
       <!-- <div class="plan-select"><a href="">Select Plan B</a></div> -->
-      <div class="plan-select"><button (click)="clickEventB()"  class="btn btn-secondary">SELECT PLAN B</button></div>
+      <div class="plan-select"><button (click)="clickEventB()"  class="btn btn-secondary">SELECT PLAN 2</button></div>
     </div>
     <div class="plan featured">
       <h3 class="plan-title">
@@ -52,7 +52,7 @@
         <li><i class="ion-checkmark"> </i>Daily Backups</li>
       </ul>
       <!-- <div class="plan-select"><a href="">Select Plan C</a></div> -->
-      <div class="plan-select"><button (click)="clickEventC()"  class="btn btn-secondary">SELECT PLAN C</button></div>
+      <div class="plan-select"><button (click)="clickEventC()"  class="btn btn-secondary">SELECT PLAN 3</button></div>
       
     </div>
 
@@ -60,8 +60,11 @@
     
   </div>
 
-  <button (click)="clickPopulateUserplansTable()"  class="btn btn-secondary">Confirm (populate userplans table)</button>
-  <button (click)="getUserplansId()"  class="btn btn-secondary">find id (get userplansId)</button>
+  <div class="additional-btns">
+    <button (click)="clickPopulateUserplansTable()"  class="btn btn-secondary">Add new plan (populate userplans table)</button>
+    <button (click)="getUserplansId()"  class="btn btn-secondary">find id (get userplansId)</button>
+
+  </div>
 
 <!-- ?????????????? CHECK -->
   <app-new-device [someName]="userData.email" [planChosen]="planChosen" [userData]="userData" [userplansId]="userplansId"></app-new-device>

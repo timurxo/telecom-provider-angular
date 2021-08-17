@@ -81,7 +81,7 @@ export class NewDeviceComponent implements OnInit {
     //   } as SweetAlertOptions);
     // }
 
-
+ 
 
 
      
