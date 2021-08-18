@@ -132,17 +132,30 @@
                   <!--  --------- UPDATE PHONE INFO ---------- -->
                   
                         <label class="sr-only" for="inlineFormInputName2">Name</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder={{phoneNameToUpdate}}>
+                        <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" 
+                            placeholder={{phoneNameToUpdate}} 
+                            value={{phoneNameToUpdate}} 
+                            [(ngModel)]="newPhoneName" 
+                            name="newPhoneName">
                     
+                       
+
                         <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
                         <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
 
                         </div>
-                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder={{phoneNumberToUpdate}}>
+                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2" 
+                            placeholder={{phoneNumberToUpdate}} 
+                            value={{phoneNumberToUpdate}} 
+                            [(ngModel)]="newPhoneNumber" 
+                            name="newPhoneNumber">
+                         
+
+
                         </div>
                     
-                        <button type="submit" class="btn btn-primary mb-2">Update Phone Info </button>
+                        <button type="submit" class="btn btn-primary mb-2" (click)="sendUpdateRequestToBackend()">Update Phone Info </button>
                   
           </form>
     </li>

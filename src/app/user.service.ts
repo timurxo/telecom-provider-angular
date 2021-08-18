@@ -136,6 +136,10 @@ export class UserService {
     return this.httpClient.get<number>(this.urlPhoneInfo + "/numOfDevicesForEachPlan/" + user_id + "/" + plan_id);
   }
 
+  updatePhoneInfo(phoneInfo: PhoneInfo, phoneId: number): Observable<PhoneInfo> {
+    return this.httpClient.put<PhoneInfo>(this.urlPhoneInfo + "/" + phoneId, phoneInfo);
+  }
+
   // ================================================================================
   // -------------------------------- PLANS -----------------------------------------
   // ================================================================================

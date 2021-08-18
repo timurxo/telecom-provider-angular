@@ -24,7 +24,7 @@ export class UserInfoComponent implements OnInit {
   userDataPlan!: Plans;
   userDataPhoneInfo!: PhoneInfo;
 
-  
+ 
  
   msg!:string;
   numberOfDevices = 0;
@@ -78,12 +78,53 @@ export class UserInfoComponent implements OnInit {
   phoneIdToUpdate = 0;
   phoneNameToUpdate = '';
   phoneNumberToUpdate = '';
+  phonePlanToUpdate = 0;
+ 
+  
 
   updBtn(phoneInfoToUpdate: PhoneInfo) {
     console.log("upd btn pushed: " + phoneInfoToUpdate.phone_id);
     this.phoneIdToUpdate = phoneInfoToUpdate.phone_id;
+    this.phonePlanToUpdate = phoneInfoToUpdate.userPlanId;
+    
     this.phoneNameToUpdate = phoneInfoToUpdate.phoneName;
     this.phoneNumberToUpdate = phoneInfoToUpdate.phoneNumber;
+    
+  }
+
+  sendUpdToBackend: PhoneInfo = new PhoneInfo;
+  newPhoneName = '';
+  newPhoneNumber = '';
+  sendUpdateRequestToBackend() {
+
+    this.sendUpdToBackend.phone_id = this.phoneIdToUpdate;
+    this.sendUpdToBackend.phoneName = this.newPhoneName;
+    this.sendUpdToBackend.phoneNumber = this.newPhoneNumber;
+    this.sendUpdToBackend.userPlanId = this.phonePlanToUpdate;
+
+    console.log("Update with: " + this.sendUpdToBackend.phone_id);
+    console.log("Update with: " + this.sendUpdToBackend.phoneName);
+    console.log("Update with: " + this.sendUpdToBackend.phoneNumber);
+    console.log("Update with: " + this.sendUpdToBackend.userPlanId);
+    
+ 
+
+    // update phone info
+    this.service.updatePhoneInfo(this.sendUpdToBackend, this.sendUpdToBackend.phone_id).subscribe((data) => {
+      console.log("phone info was updated: " + data);
+
+      // upd table?
+      this.newPhoneName = '';
+      this.newPhoneNumber = '';
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Done',
+        text: 'Your phone info has been updated'
+      } as SweetAlertOptions);
+      
+    });
+
   }
   
 
