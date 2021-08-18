@@ -17,8 +17,6 @@ export class UserInfoComponent implements OnInit {
 
   constructor(private service: UserService) { }
 
-  
-
   userToFind!: string;
   userData!: UserInf;
   userDataPlan!: Plans;
@@ -77,6 +75,7 @@ export class UserInfoComponent implements OnInit {
   phoneNumberToUpdate = '';
   phonePlanToUpdate = 0;
  
+  x: PhoneInfo = new PhoneInfo; // ***************************
   
   plansUserALreadyHas!: number[];
   
@@ -84,6 +83,9 @@ export class UserInfoComponent implements OnInit {
   // =================== WHEN 'UPDATE' BUTTON IS PUSHED ===================
   // ----------- get data about user and move it to input form ------------
   updBtn(phoneInfoToUpdate: PhoneInfo) {
+
+    this.x = phoneInfoToUpdate;
+
     console.log("upd btn pushed: " + phoneInfoToUpdate.phone_id);
     this.phoneIdToUpdate = phoneInfoToUpdate.phone_id;
     this.phonePlanToUpdate = phoneInfoToUpdate.userPlanId;
@@ -158,31 +160,40 @@ export class UserInfoComponent implements OnInit {
 
     console.log("PLANS ALREADY HAS: " + this.plansUserALreadyHas);
     console.log(typeof this.plansUserALreadyHas);
-    
     console.log("NEW PLAN: " + Number(this.newPlan));
     
 
       // if user haven't bought the plan yet
       if (!(this.plansUserALreadyHas.includes(Number(this.newPlan)))) {
-          alert("you need to buy a plan first");
+        Swal.fire({
+          icon: 'error',
+          title: 'Nope',
+          text: 'You need to buy a plan first'
+        } as SweetAlertOptions);
           return;
       } 
 
       // if user already has plan -> get userplan table id where >user_id< & >planId<
       this.service.getUserPlansIdByUserIdAndPlanId(this.userData.user_id, this.newPlan).subscribe((data) => {
           console.log("ROW ID WITH UPDATED PLAN: " + data);
-          this.newFK = data;
+          // this.newFK = data;
 
                   // populate PhoneInfo object with updated FK and send update request
+                  // this.sendUpdWithNewPlan.userPlanId = data;
+                  // this.sendUpdWithNewPlan.phone_id = this.phoneIdToUpdate;
+                  // this.sendUpdWithNewPlan.phoneName = this.phoneNumberToUpdate;
+                  // this.sendUpdWithNewPlan.phoneNumber = this.phoneNameToUpdate;
+                  this.sendUpdWithNewPlan = this.x;
                   this.sendUpdWithNewPlan.userPlanId = data;
-                  this.sendUpdWithNewPlan.phone_id = this.phoneIdToUpdate;
-                  this.sendUpdWithNewPlan.phoneName = this.phoneNumberToUpdate;
-                  this.sendUpdWithNewPlan.phoneNumber = this.phoneNameToUpdate;
 
 
                     this.service.updatePhoneInfo(this.sendUpdWithNewPlan, this.phoneIdToUpdate).subscribe((data) => {
                       console.log(data);
-                      alert("plan is updated!")
+                      Swal.fire({
+                        icon: 'success',
+                        title: 'Done',
+                        text: 'Your plan has been updated'
+                      } as SweetAlertOptions);
                     
                   });
 
@@ -192,6 +203,13 @@ export class UserInfoComponent implements OnInit {
       });
 
      
+
+  }
+
+
+  done_btn() {
+
+    
 
   }
 

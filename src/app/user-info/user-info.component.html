@@ -171,7 +171,7 @@
                   </div>
                   <!-- <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Plan" [(ngModel)]="newPlan" name="newPlan"> -->
                   <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputGroupUsername2" 
-                        placeholder="Pick new plan..."
+                        placeholder="Pick plan 1, 2, or 3..."
                         value="newPlan"
                         [(ngModel)]=newPlan
                         name="newPlan">
@@ -191,7 +191,7 @@
 
    <li class="list-group-item list-group-item-primary">
         <div class="input-group mb-2 mr-sm-2">
-            <button (click)="showDiv.current = !showDiv.current" class="btn btn-primary mb-2"> Done</button>
+            <button (click)="showDiv.current = !showDiv.current" class="btn btn-primary mb-2" (click)="done_btn()"> Done</button>
         </div>
     </li>
     
