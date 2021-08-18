@@ -9,7 +9,7 @@
   
   <div class="page-content page-container" id="page-content">
     <div class="padding">
-      <div class="row container d-flex justify-content-center">
+      <div class="row container d-flex justify-content-center" id="card-position">
         <div class="col-xl-6 col-md-12">
           <div class="card user-card-full">
             <div class="row m-l-0 m-r-0">
@@ -133,8 +133,8 @@
                   
                         <label class="sr-only" for="inlineFormInputName2">Name</label>
                         <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" 
-                            placeholder={{phoneNameToUpdate}} 
-                            value={{phoneNameToUpdate}} 
+                            placeholder="New Phone Name" 
+                            value="phoneNameToUpdate"
                             [(ngModel)]="newPhoneName" 
                             name="newPhoneName">
                     
@@ -146,8 +146,8 @@
 
                         </div>
                         <input type="text" class="form-control" id="inlineFormInputGroupUsername2" 
-                            placeholder={{phoneNumberToUpdate}} 
-                            value={{phoneNumberToUpdate}} 
+                            placeholder="New Phone Number"
+                            value="phoneNumberToUpdate" 
                             [(ngModel)]="newPhoneNumber" 
                             name="newPhoneNumber">
                          
@@ -169,10 +169,16 @@
                   <div class="input-group-prepend">
 
                   </div>
-                  <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Plan">
-              </div>
+                  <!-- <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Plan" [(ngModel)]="newPlan" name="newPlan"> -->
+                  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputGroupUsername2" 
+                        placeholder="Pick new plan..."
+                        value="newPlan"
+                        [(ngModel)]=newPlan
+                        name="newPlan">
+             
+                </div>
               
-              <button type="submit" class="btn btn-primary mb-2">Update Plan</button>
+              <button type="submit" class="btn btn-primary mb-2" (click)="updatePlan()">Update Plan</button>
           </form>
 
       </li>

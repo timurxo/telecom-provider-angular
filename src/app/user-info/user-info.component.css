@@ -9,6 +9,7 @@ body {
 .user-card-full {
     overflow: scroll;
     width: 150%;
+    
 }
 
 .card {
@@ -138,11 +139,11 @@ h6 {
 }
 
 
-/* 
-#user-data {
-    padding-left: 300px;
+
+/* #user-data {
+
     padding-right: 300px;
-    padding-bottom: 300px;
+
 
    
 } */
@@ -176,4 +177,9 @@ h6 {
 #when-update-pressed {
     width:800px; 
     margin:0 auto;
+}
+
+#card-position {
+    margin-left: auto;
+    margin-right: auto;
 }

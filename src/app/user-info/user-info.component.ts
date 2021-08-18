@@ -39,16 +39,13 @@ export class UserInfoComponent implements OnInit {
       this.numberOfDevices = data; 
       console.log("COUNT: " + this.numberOfDevices);
     });
-    
-    
-    
-   
+
   }
 
 
 
-
-  // ---- REMOVE ROW WHEN BUTTON IS CLICKED ---- 
+  // ======================================================================
+  // ================== REMOVE ROW WHEN BUTTON IS CLICKED ================ 
   clickRemove(phoneId: any) {
     console.log("removed: " + phoneId);
 
@@ -66,7 +63,7 @@ export class UserInfoComponent implements OnInit {
   });
     
   }
-
+ // ======================================================================
 
   // for update functionality
   showDiv = {
@@ -81,20 +78,45 @@ export class UserInfoComponent implements OnInit {
   phonePlanToUpdate = 0;
  
   
-
+  plansUserALreadyHas!: number[];
+  
+  // ======================================================================
+  // =================== WHEN 'UPDATE' BUTTON IS PUSHED ===================
+  // ----------- get data about user and move it to input form ------------
   updBtn(phoneInfoToUpdate: PhoneInfo) {
     console.log("upd btn pushed: " + phoneInfoToUpdate.phone_id);
     this.phoneIdToUpdate = phoneInfoToUpdate.phone_id;
     this.phonePlanToUpdate = phoneInfoToUpdate.userPlanId;
-    
     this.phoneNameToUpdate = phoneInfoToUpdate.phoneName;
     this.phoneNumberToUpdate = phoneInfoToUpdate.phoneNumber;
+
+    console.log("----- Current plan id: " + phoneInfoToUpdate.userPlanId);
+
+    // check plans user already bought
+    this.service.checkPlansUserHas(this.userData.user_id).subscribe((data) => {
+      console.log('plans user actually has: ' + data);
+      this.plansUserALreadyHas = data;
+      
+    });
     
+
+    // 1. get userId from PhonInfo table
+    // 2. check UserPlans for planId
+    // 3. if new (input) planId exists -> return row from UserPlans & assign as fk in PhoneInfo
+    // 4. else -> ask to buy plan first
+    // checkIfUserHasThatPlan(userId)
   }
+
+  // ======================================================================
+
+
 
   sendUpdToBackend: PhoneInfo = new PhoneInfo;
   newPhoneName = '';
   newPhoneNumber = '';
+
+  // ======================================================================
+  // ============ WHEN 'UPDATE PHONE INFO' BUTTON IS PUSHED ===============
   sendUpdateRequestToBackend() {
 
     this.sendUpdToBackend.phone_id = this.phoneIdToUpdate;
@@ -106,9 +128,7 @@ export class UserInfoComponent implements OnInit {
     console.log("Update with: " + this.sendUpdToBackend.phoneName);
     console.log("Update with: " + this.sendUpdToBackend.phoneNumber);
     console.log("Update with: " + this.sendUpdToBackend.userPlanId);
-    
  
-
     // update phone info
     this.service.updatePhoneInfo(this.sendUpdToBackend, this.sendUpdToBackend.phone_id).subscribe((data) => {
       console.log("phone info was updated: " + data);
@@ -126,7 +146,54 @@ export class UserInfoComponent implements OnInit {
     });
 
   }
-  
+  // ========================================================================
+
+
+  // ========================================================================
+  // =================== WHEN 'UPDATE PLAN' BUTTON IS PUSHED ================
+  newPlan!: number;
+  sendUpdWithNewPlan: PhoneInfo = new PhoneInfo;
+  newFK!: number;
+  updatePlan() {
+
+    console.log("PLANS ALREADY HAS: " + this.plansUserALreadyHas);
+    console.log(typeof this.plansUserALreadyHas);
+    
+    console.log("NEW PLAN: " + Number(this.newPlan));
+    
+
+      // if user haven't bought the plan yet
+      if (!(this.plansUserALreadyHas.includes(Number(this.newPlan)))) {
+          alert("you need to buy a plan first");
+          return;
+      } 
+
+      // if user already has plan -> get userplan table id where >user_id< & >planId<
+      this.service.getUserPlansIdByUserIdAndPlanId(this.userData.user_id, this.newPlan).subscribe((data) => {
+          console.log("ROW ID WITH UPDATED PLAN: " + data);
+          this.newFK = data;
+
+                  // populate PhoneInfo object with updated FK and send update request
+                  this.sendUpdWithNewPlan.userPlanId = data;
+                  this.sendUpdWithNewPlan.phone_id = this.phoneIdToUpdate;
+                  this.sendUpdWithNewPlan.phoneName = this.phoneNumberToUpdate;
+                  this.sendUpdWithNewPlan.phoneNumber = this.phoneNameToUpdate;
+
+
+                    this.service.updatePhoneInfo(this.sendUpdWithNewPlan, this.phoneIdToUpdate).subscribe((data) => {
+                      console.log(data);
+                      alert("plan is updated!")
+                    
+                  });
+
+
+
+
+      });
+
+     
+
+  }
 
   
 
