@@ -22,43 +22,44 @@
   </head>
   <body> -->
 
+    <section id="new-user-section">
 
-    <div class="login-box">
-      <h2>Register</h2>
-      
-        <div class="user-box">
-          <input
-          [(ngModel)]="username"
-          name="email"
-          class="form-control"
-          id="email"
-          type="text"  
-      
-        />
-          <label>Username</label>
+        <div class="login-box">
+          <h2>Register</h2>
+          
+            <div class="user-box">
+              <input
+              [(ngModel)]="username"
+              name="email"
+              class="form-control"
+              id="email"
+              type="text"  
+          
+            />
+              <label>Username</label>
+            </div>
+            <div class="user-box">
+              <input
+              [(ngModel)]="password"
+              name="password"
+              class="form-control"
+              id="password"
+              type="text"
+            />
+              <label>Password</label>
+            </div>
+            <form >
+            <a (click)="save()">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              Register
+            </a>
+          </form>
         </div>
-        <div class="user-box">
-          <input
-          [(ngModel)]="password"
-          name="password"
-          class="form-control"
-          id="password"
-          type="text"
-        />
-          <label>Password</label>
-        </div>
-        <form >
-        <a (click)="save()">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          Register
-        </a>
-      </form>
-    </div>
 
-
+   </section>
 
 
 

@@ -63,11 +63,11 @@
                         <td>{{userD.plans.maxDevices}}</td>
 
                         <td>
-                          <button (click)="showDiv.current = !showDiv.current">Update</button>
+                          <button (click)="showDiv.current = !showDiv.current" class="btn btn-warning" (click)="updBtn(userDev)">Update </button>
                         </td>
 
                         <td>
-                          <button (click)="clickRemove(userDev.phone_id)">Remove</button>
+                          <button (click)="clickRemove(userDev.phone_id)" class="btn btn-danger">Remove</button>
                         </td>
 
                           <!-- {{userDev.length}} -->
@@ -112,52 +112,71 @@
 
 
 
-
+<!-- ====================== UPDATE FUNCTIONALITY ==================== -->
 
 
   <div class="row"  *ngIf="showDiv.current" id="when-update-pressed">
 
 
-    <form class="form-inline" style="padding-top: 15px;">
+    <ul class="list-group">
+      
+      <li class="list-group-item list-group-item-primary"> 
+            <div><h4>Update phone with ID: {{phoneIdToUpdate}}; Name: {{phoneNameToUpdate}}; Number: {{phoneNumberToUpdate}}</h4> </div> 
+      </li>
 
-            <!-- UPDATE PHONE INFO -->
-            <label class="sr-only" for="inlineFormInputName2">Name</label>
-            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Phone Name">
-        
-            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
-            <div class="input-group mb-2 mr-sm-2">
-            <div class="input-group-prepend">
+      <li class="list-group-item list-group-item-primary">
+          <form class="form-inline" style="padding-top: 15px;">
 
-            </div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Phone Number">
-            </div>
-        
-            <button type="submit" class="btn btn-primary mb-2">Update Phone Info </button>
-    </form>
+            
 
-    <form class="form-inline">
-       
+                  <!--  --------- UPDATE PHONE INFO ---------- -->
+                  
+                        <label class="sr-only" for="inlineFormInputName2">Name</label>
+                        <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder={{phoneNameToUpdate}}>
+                    
+                        <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                        <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+
+                        </div>
+                        <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder={{phoneNumberToUpdate}}>
+                        </div>
+                    
+                        <button type="submit" class="btn btn-primary mb-2">Update Phone Info </button>
+                  
+          </form>
+    </li>
+
+      <li class="list-group-item list-group-item-primary">
+
+        <!-- ---------- UPDATE PLAN --------- -->
+          <form class="form-inline">
+            
+              <div class="input-group mb-2 mr-sm-2">
+                  <div class="input-group-prepend">
+
+                  </div>
+                  <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Plan">
+              </div>
+              
+              <button type="submit" class="btn btn-primary mb-2">Update Plan</button>
+          </form>
+
+      </li>
+
+  
+
+
+
+   <!-- ----------- HIDE PANEL ------------ -->
+
+   <li class="list-group-item list-group-item-primary">
         <div class="input-group mb-2 mr-sm-2">
-            <div class="input-group-prepend">
-
-            </div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Plan">
+            <button (click)="showDiv.current = !showDiv.current" class="btn btn-primary mb-2"> Done</button>
         </div>
-        
-        <button type="submit" class="btn btn-primary mb-2">Update Plan</button>
-    </form>
-
-
-
-
-
-
-   
-    <div class="input-group mb-2 mr-sm-2">
-         <button (click)="showDiv.current = !showDiv.current" class="btn btn-primary mb-2"> Hide</button>
-     </div>
+    </li>
     
-
+  </ul>
 
 </div>
 

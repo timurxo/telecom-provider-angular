@@ -16,7 +16,14 @@
     padding-right: 50px;
 }
 
+.bg-light {
+  background-color: #96BAFF !important;
+}
 
+a {
+  color: #3C5186;
+  font-family: 'Playfair Display', serif;
+}
 
 
 /* .my-top-container {

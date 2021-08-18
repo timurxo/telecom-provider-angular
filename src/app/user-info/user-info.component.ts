@@ -24,7 +24,7 @@ export class UserInfoComponent implements OnInit {
   userDataPlan!: Plans;
   userDataPhoneInfo!: PhoneInfo;
 
-
+  
  
   msg!:string;
   numberOfDevices = 0;
@@ -39,6 +39,8 @@ export class UserInfoComponent implements OnInit {
       this.numberOfDevices = data; 
       console.log("COUNT: " + this.numberOfDevices);
     });
+    
+    
     
    
   }
@@ -69,6 +71,19 @@ export class UserInfoComponent implements OnInit {
   // for update functionality
   showDiv = {
     current : false
+  }
+
+
+
+  phoneIdToUpdate = 0;
+  phoneNameToUpdate = '';
+  phoneNumberToUpdate = '';
+
+  updBtn(phoneInfoToUpdate: PhoneInfo) {
+    console.log("upd btn pushed: " + phoneInfoToUpdate.phone_id);
+    this.phoneIdToUpdate = phoneInfoToUpdate.phone_id;
+    this.phoneNameToUpdate = phoneInfoToUpdate.phoneName;
+    this.phoneNumberToUpdate = phoneInfoToUpdate.phoneNumber;
   }
   
 
