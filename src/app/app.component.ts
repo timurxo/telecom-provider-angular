@@ -15,6 +15,11 @@ export class AppComponent {
   userData: UserInf = new UserInf;
 
   ngOnInit(): void {
+      
+  }
+
+  homeClick() {
     this.userData = this.service.getShareUserData();
   }
+  
 }
