@@ -14,8 +14,8 @@ export class ManagePlansComponent implements OnInit {
   // @Input() userData!: UserInf;
   userData!: UserInf;
   // @Input() someName = '';   // name of user from user-info component
-  // planChosen = 'No Plan';
-  planChosen!: number;
+  // planChosen = 0;
+  planChosen!: number;   // ********************
 
   populateUserPlans: UserPlans = new UserPlans();
 
@@ -74,8 +74,11 @@ export class ManagePlansComponent implements OnInit {
     console.log(this.populateUserPlans.user_info_user_id);
     console.log(this.populateUserPlans.plans_plan_id);
 
+    console.log("this.planChosen = " + this.planChosen);
+    
+
     // if plan isn't picked
-    if (!this.planChosen) {
+    if (!this.planChosen || this.planChosen == undefined) {
       Swal.fire({
         icon: 'error',
         title: 'nope',
@@ -126,8 +129,23 @@ export class ManagePlansComponent implements OnInit {
         text: 'You can now add a phone info!'
       } as SweetAlertOptions);
 
-      
+
     });
+
+
+
+    // if userplans id isn't found
+    if (this.userplansId ==null || this.userplansId == undefined || !this.userplansId) {
+          Swal.fire({
+            icon: 'error',
+            title: 'nope',
+            text: 'Choose the plan first'
+          } as SweetAlertOptions);
+
+          return;
+    }
+
+    
   }
 
 

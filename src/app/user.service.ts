@@ -21,6 +21,10 @@ export class UserService {
     this.shareUserData = userInf;
   }
   getShareUserData() {
+    // if (!this.setShareUserData) {
+    //   console.log("no data found");
+  
+    // }
     return this.shareUserData;
   }
 
