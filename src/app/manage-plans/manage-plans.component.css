@@ -154,7 +154,7 @@
 
 .prices-h {
     padding-bottom: 70px;
-    padding-right: 120px;
+    padding-right: 170px;
     font: 'Raleway', Arial, sans-serif;
 }
 
@@ -166,7 +166,8 @@ button {
 
 .additional-btns {
   padding-top: 300px;
-  padding-left: 100px;
+  /* padding-left: 100px; */
+
 }
 
 
@@ -184,4 +185,13 @@ button {
 
 .add-plan-div {
   text-align: center;
+}
+
+#add-userplans-btn {
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
 }
