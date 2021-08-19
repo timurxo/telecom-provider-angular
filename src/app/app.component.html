@@ -59,7 +59,11 @@
 
 
             <nav class="navbar fixed-top navbar-light bg-light" style="color:#3C5186">
-              <div> <h1 id="website-header">Telecom Provider</h1></div>
+              <div> 
+                <h1 id="website-header">Telecom Provider</h1>
+                <h6>Current Session:  {{userData.email}}</h6>
+              </div>
+              
               
               <a [routerLink]="['/add']">Register User</a>
               <a [routerLink]="['/list']"> Test Stuff</a>

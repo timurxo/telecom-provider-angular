@@ -15,7 +15,8 @@ import PhoneInfo from './models/PhoneInfo';
 export class UserService {
 
   // service to share UserInf obejct among parent-children components
-  shareUserData!: UserInf;
+  // shareUserData!: UserInf;
+  shareUserData: UserInf = new UserInf;
   setShareUserData(userInf: UserInf) {
     this.shareUserData = userInf;
   }

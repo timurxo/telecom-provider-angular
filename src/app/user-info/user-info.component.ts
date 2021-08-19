@@ -135,7 +135,11 @@ export class UserInfoComponent implements OnInit {
     this.service.updatePhoneInfo(this.sendUpdToBackend, this.sendUpdToBackend.phone_id).subscribe((data) => {
       console.log("phone info was updated: " + data);
 
-      // upd table?
+      // +++++++++++++++++++++++++++++++++++++++ upd user info table +++++++++++++++++++++++++++++++
+                 this.updateTable();
+
+
+
       this.newPhoneName = '';
       this.newPhoneNumber = '';
 
@@ -188,12 +192,18 @@ export class UserInfoComponent implements OnInit {
 
 
                     this.service.updatePhoneInfo(this.sendUpdWithNewPlan, this.phoneIdToUpdate).subscribe((data) => {
-                      console.log(data);
-                      Swal.fire({
-                        icon: 'success',
-                        title: 'Done',
-                        text: 'Your plan has been updated'
-                      } as SweetAlertOptions);
+                          console.log(data);
+
+
+                          // +++++++++++++++++++++++++++++++++++++++ upd user info table +++++++++++++++++++++++++++++++
+                          this.updateTable();
+
+
+                          Swal.fire({
+                            icon: 'success',
+                            title: 'Done',
+                            text: 'Your plan has been updated'
+                          } as SweetAlertOptions);
                     
                   });
 
@@ -209,10 +219,22 @@ export class UserInfoComponent implements OnInit {
 
   done_btn() {
 
-    
 
   }
 
+
+  updateTable() {
+
+    // +++++++++++++++++++++++++++++++++++++++ upd user info table +++++++++++++++++++++++++++++++
+                  // get data by email
+                  this.service.queryUserTableByEmail(this.userData.email).subscribe((data) => {
+                    this.userData = data; 
+                    // set value in Service -> share with child components
+                    this.service.setShareUserData(this.userData);
+                    console.log( "USER DATA FROM BACKEND: " + this.userData);
+                });
+
+  }
   
 
 }
