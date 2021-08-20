@@ -35,7 +35,7 @@ export class LoginPageComponent implements OnInit {
     this.userToFind = this.msg;
     this.passwordToFind = this.msgPassword;
 
-    if (!this.userToFind) {
+    if (!this.userToFind || this.userToFind == '' || this.passwordToFind == '') {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -46,11 +46,13 @@ export class LoginPageComponent implements OnInit {
 
     // get data by email
     this.service.queryUserTableByEmailAndPassword(this.userToFind, this.passwordToFind).subscribe((data) => {
+
       this.userData = data; 
       // set value in Service -> share with child components
       this.service.setShareUserData(this.userData);
 
-
+ 
+      // if data was found
       Swal.fire({
         icon: 'success',
         title: 'Welcome, ' + this.msg + "!",
@@ -60,9 +62,21 @@ export class LoginPageComponent implements OnInit {
        
       console.log( "USER DATA FROM BACKEND: " + this.userData);
       this.msg = '';
-
+      this.msgPassword = '';
      
+      // if failed to get data from db
+    }, error => {
+        // if failed
+          Swal.fire({
+            icon: 'error',
+            title: 'Wrong username or password',
+            text: 'Please try again!'
+          } as SweetAlertOptions);
+          // return;
 
+          this.msg = '';
+          this.msgPassword = '';
+ 
     });
 
     // *******
