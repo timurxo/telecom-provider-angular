@@ -75,6 +75,10 @@ export class UserService {
     return this.httpClient.get<UserInf>(this.urlDATA + "/email/" + email);
   }
 
+  queryUserTableByEmailAndPassword(email: string, password: string): Observable<UserInf> {
+    return this.httpClient.get<UserInf>(this.urlUser + "/byEmailAndPassword/" + email + "/" + password);
+  }
+
  
   // addUserPlans
 

@@ -15,12 +15,14 @@ export class LoginPageComponent implements OnInit {
   constructor(private service: UserService) { }
 
   userToFind!: string;
+  passwordToFind!: string;  // ****
   userData!: UserInf;
   userDataPlan!: Plans;
   userDataPhoneInfo!: PhoneInfo;
 
 
   msg!:string;
+  msgPassword!:string;
   numberOfDevices = 0;
  
   
@@ -28,7 +30,10 @@ export class LoginPageComponent implements OnInit {
   // ---- GET DATA FROM THE SERVICE WHEN BUTTON IS CLICKED ----
   clickEvent(){
     console.log(this.msg);
+    console.log(this.msgPassword);
+    
     this.userToFind = this.msg;
+    this.passwordToFind = this.msgPassword;
 
     if (!this.userToFind) {
       Swal.fire({
@@ -40,12 +45,11 @@ export class LoginPageComponent implements OnInit {
     }
 
     // get data by email
-    this.service.queryUserTableByEmail(this.userToFind).subscribe((data) => {
+    this.service.queryUserTableByEmailAndPassword(this.userToFind, this.passwordToFind).subscribe((data) => {
       this.userData = data; 
       // set value in Service -> share with child components
       this.service.setShareUserData(this.userData);
 
-      // setTimeout(()=>{ }, 4000)
 
       Swal.fire({
         icon: 'success',
