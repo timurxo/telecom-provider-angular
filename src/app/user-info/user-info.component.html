@@ -23,7 +23,8 @@
                     />
                   </div>
                   <h6 class="f-w-600">{{ userData.email }}</h6>
-                    <h6>id: {{userData.user_id}}</h6> 
+                    <h6>User ID: {{userData.user_id}}</h6> 
+                    <h6>Current plans: {{plansUserALreadyHas}}</h6>
                 </div>
               </div>
               <div class="col-sm-8">
@@ -135,7 +136,7 @@
                   
                         <label class="sr-only" for="inlineFormInputName2">Name</label>
                         <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" 
-                            placeholder="New Phone Name" 
+                            placeholder="New phone name..." 
                             value="phoneNameToUpdate"
                             [(ngModel)]="newPhoneName" 
                             name="newPhoneName">
@@ -148,7 +149,7 @@
 
                         </div>
                         <input type="text" class="form-control" id="inlineFormInputGroupUsername2" 
-                            placeholder="New Phone Number"
+                            placeholder="New phone number..."
                             value="phoneNumberToUpdate" 
                             [(ngModel)]="newPhoneNumber" 
                             name="newPhoneNumber">

@@ -31,11 +31,20 @@ export class UserInfoComponent implements OnInit {
   ngOnInit(): void {
 
     this.userData = this.service.getShareUserData();
+
+    this.updateTable();
     
     // display number of devices user has in total
     this.service.getNumberOfDevicesByUserId(this.userData.user_id).subscribe((data) => {
       this.numberOfDevices = data; 
       console.log("COUNT: " + this.numberOfDevices);
+    });
+
+    // check plans user already has
+    this.service.checkPlansUserHas(this.userData.user_id).subscribe((data) => {
+      console.log('plans user actually has: ' + data);
+      this.plansUserALreadyHas = data;
+      
     });
 
   }
@@ -206,6 +215,8 @@ export class UserInfoComponent implements OnInit {
                             title: 'Done',
                             text: 'Your plan has been updated'
                           } as SweetAlertOptions);
+
+                          this.newPlan = 0;
                     
                   });
 
