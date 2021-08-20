@@ -61,6 +61,8 @@ export class NewDeviceComponent implements OnInit {
         title: 'Done!',
         text: 'You have added a phone info!'
       } as SweetAlertOptions);
+
+      this.updateTable();
     });
 
       console.log("TRYING TO SEND: " + this.phoneInfoToSave);
@@ -101,11 +103,21 @@ export class NewDeviceComponent implements OnInit {
 
     console.log("USERPLANS ID FROM PARENT COMP: " + this.userplansId);
 
-   
-    
-    
   }
 
+
+  updateTable() {
+
+    // +++++++++++++++++++++++++++++++++++++++ upd user info table +++++++++++++++++++++++++++++++
+                  // get data by email
+                  this.service.queryUserTableByEmail(this.userData.email).subscribe((data) => {
+                    this.userData = data; 
+                    // set value in Service -> share with child components
+                    this.service.setShareUserData(this.userData);
+                    console.log( "USER DATA FROM BACKEND: " + this.userData);
+                });
+
+  }
 
 
 

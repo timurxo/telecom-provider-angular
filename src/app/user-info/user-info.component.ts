@@ -58,6 +58,8 @@ export class UserInfoComponent implements OnInit {
         title: 'Done',
         text: 'Your device has been removed!'
       } as SweetAlertOptions);
+
+      this.updateTable();
   });
     
   }

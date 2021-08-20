@@ -13,7 +13,8 @@
 }
 
 .navbar {
-    padding-right: 50px;
+    padding-right: 70px;
+    padding-left: 50px;
 }
 
 .bg-light {
@@ -23,6 +24,7 @@
 a {
   color: #3C5186;
   font-family: 'Playfair Display', serif;
+
 }
 
 
